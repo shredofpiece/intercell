@@ -1,0 +1,22 @@
+Frustration
+===========
+
+Going to C++20 if it makes life esier :-)
+
+Running into unexpected trouble
+while trying to implement a debug level
+set by a command line argument trough *(argv[1]).
+
+Instead of DeleteListAndTheirElements.h my self, I would like to use
+ptrlist from the standard libary or boost again, but the compiler won't let me.
+
+->Uniting similar setter and getter functions.
+As a workaround I have put in objcare (template)
+and even there recursion has not worked.<-
+
+Bad Readability. For instance ugly calls in main.
+
+Non intuitive counting from zero.
+
+Is ist possible to replace/redo Class/Template Structure in ASM
+for more ->flexibility<- regarding this particular modeling purpose ?
