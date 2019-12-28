@@ -1,8 +1,6 @@
 Frustration
 ===========
 
-Going to C++20 if it makes life esier :-)
-
 Running into unexpected trouble
 while trying to implement a debug level
 set by a command line argument trough *(argv[1]).

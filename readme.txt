@@ -6,6 +6,8 @@ This code was intended to model intercell communication
 starting with brain cells resembling a neural network.
 It is written in C++11 using debian linux.
 
+close to the physical level.
+
 
 Class diagram
 =============
@@ -46,7 +48,8 @@ EDatatype.h                     typedefs, ranges, (counting from 1 instead of 0)
 EDebug.h                        deklaring integer debug_level
 TDeleteListAndTheirElements.h   freeing memory
 run                             executable for debian
-readme_en.txt                   this
+bad.txt                         errors
+readme.txt                      this
 
 Double deklaration of debug_level (NN.h, EDebug.h). Other errors regarding debug level ?
 
@@ -55,6 +58,5 @@ What it does
 ============
 
 Calls in main lead to the ->creation of objects, belonging to the network structure<-.
-Likewise they are destroyed after hitting [ENTER] for leaving the program.
-In between there is nothing else implemented yet. The log goes to standard output.
-
+Likewise they are destructed after hitting [ENTER] for leaving the program.
+In between there is no action yet. The log goes to standard output.
