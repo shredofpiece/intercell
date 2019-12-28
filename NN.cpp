@@ -1,7 +1,28 @@
 #include "NN.h"
 
+/*bool DebugLevel(usi level)
+  {
+  if(argc<2 && level<=1)
+    return true;
+  else if(level<=*(argv[1])-48)
+    return true;
+  else
+    return false;
+  }*/
+
 int main(int argc, char* argv[])
   {
+  if(argc<2)
+    debug_level = 1;
+  else
+    debug_level=*(argv[1])-48;
+
+  if(debug_level>=1)
+    {
+    cout << "Debug-Level: " << debug_level << endl;
+    cout << endl;
+    }
+
   Set* p_set = new Set;  // Add set
   // Example network:  Input:      Hidden:      Output:
   //                    (1)          (3)
