@@ -1,3 +1,5 @@
+run [debug level]
+
 Skeleton of a neural netork
 ###########################
 
@@ -51,12 +53,43 @@ run                             executable for debian
 bad.txt                         errors
 readme.txt                      this
 
-Double deklaration of debug_level (NN.h, EDebug.h). Other errors regarding debug level ?
-
 
 What it does
 ============
 
 Calls in main lead to the ->creation of objects, belonging to the network structure<-.
-Likewise they are destructed after hitting [ENTER] for leaving the program.
+Likewise they are destructed after pressing [ENTER] for leaving the program.
 In between there is no action yet. The log goes to standard output.
+
+
+Debug level
+===========
+
+0   quiet
+1   default: variables
+2   creations
+5   konstruction/destruction
+6   memory adresses
+
+
+Abbreviations
+=============
+
+
+Filenames
+E   Element
+T   Template
+
+Variables
+plp         (p)outer to (l)ist containing (p)ointers
+ilo         (i)terator of (l)ist containing (p)ointers
+
+Templates
+D           Data
+C           count
+B
+
+Logging
+ObjC        (Obj)ect(C)are
+HavEl       (Hav)e(El)ement
+DelLstEl    (Del)ete(L)i(st)AndTheir(El)ements

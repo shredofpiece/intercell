@@ -8,6 +8,8 @@
 //#include <boost/ptr_container/ptr_list.hpp>  // newer version of C++? innerhalb boost: [C++ Fehler] remove_cv.hpp(22): E2238 Bezeichner 'remove_cv<T>' mehrfach deklariert
 #include "TDeleteListAndTheirElements.h"
 #include "EDatatype.h"
+//#include "ETime.h"
+#include "EDebug.h"         // debug_level
 using std::list;
 using std::cout;
 using std::endl;
@@ -22,11 +24,11 @@ class ObjectCare
   typename list<B*>::iterator ilp;
  public:
   ObjectCare()
-    {                                                                            cout << "ObjectCare::ObjectCare()\tKonstruktor" << endl;
+    {                                                                            if(debug_level>=5)  cout << "ObjectCare::ObjectCare()\tKonstruktor" << endl;
     plp = new list<B*>;
     }
   ~ObjectCare()
-    {                                                                            cout << "ObjectCare::~ObjectCare()\tDestruktor" << endl;
+    {                                                                            if(debug_level>=5)  cout << "ObjectCare::~ObjectCare()\tDestruktor" << endl;
     DeleteListAndTheirElements<B>(plp,ilp);  // Mit g++ not declared in this scope, wenn dieser Header in TDeleteListAndTheirElements.h inkludiert
     }
   template <typename D/*, typename... Args*/>  // D=Data (Type of pointer in list), C=count
@@ -36,11 +38,11 @@ class ObjectCare
     }
   template <typename D, typename C/*, typename... Args*/>  // D=Data (Type of pointer in list), C=count,  // A=Arguments (for Constructor)
   typename list<B*>::iterator HaveElement(C count/*, Args... args*/)
-    {                                                                            cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")" << endl << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAnfangsobjektanzahl: " << plp->size() << endl;
+    {                                                                            if(debug_level>=1)  cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")" << endl << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAnfangsobjektanzahl: " << plp->size() << endl;
     while(plp->size()<count)  // Solange Basisgröße kleiner Auswahl              // Wenn Mehrfachvererbung und zusammenführung InnerNode->InputNode, OutputNode->Node anscheinend keine Typkompatibilität von InnerNode zur Liste mit Zeigern auf die Basisklasse Node:
       AddElement<D/*,Args...*/>(/*args...*/);        // Füge Element hinzu
-    ilp=plp->begin();         /* Itterator inititialisieren   */                 cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tilp = plp->begin(): " << *ilp << endl;
-    advance(ilp, count-1);    /* Auf Auswahl Zeigen           */                 cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tEndobjektanzahl: " << plp->size() << endl << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAdr. 1.\tObjekt: " << *(plp->begin()) << endl << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAdr. " << count << ".\tObjekt: " << *ilp << " (Rueckgabe)" << endl;
+    ilp=plp->begin();         /* Itterator inititialisieren   */                 if(debug_level>=6)  cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tilp = plp->begin(): " << *ilp << endl;
+    advance(ilp, count-1);    /* Auf Auswahl Zeigen           */                 if(debug_level>=1)  cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tEndobjektanzahl: " << plp->size() << endl;  if(debug_level>=6)  cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAdr. 1.\tObjekt: " << *(plp->begin()) << endl << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAdr. " << count << ".\tObjekt: " << *ilp << " (Rueckgabe)" << endl;
     return ilp;               // Zeig auf Auswahl zurückgeben
     }
   };
@@ -195,8 +197,8 @@ class Net
     }
   template <typename D>
   void DefineLayer(uli first, uli last)  // Erstes vor dem letzten Element oder gleich (first<=last)
-    {                                                                              cout << "Net::DefineLayer(first: " << first << ", last: " << last << ")" << endl;
-    plp_layer->push_back(new Layer(HaveNode<D>(first),HaveNode<D>(last)));
+    {                                                                              if(debug_level>=1)  cout << "Net::DefineLayer(first: " << first << ", last: " << last << ")" << endl;
+    plp_layer->push_back(new Layer(HaveNode<D>(first),HaveNode<D>(last)));  // Mit ptr_list error: no matching function for call to 'boost::ptr_list<Layer*>::push_back(Layer*&)'
     }
   };
 

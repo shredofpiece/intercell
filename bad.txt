@@ -1,10 +1,6 @@
 Frustration
 ===========
 
-Running into unexpected trouble
-while trying to implement a debug level
-set by a command line argument trough *(argv[1]).
-
 Instead of DeleteListAndTheirElements.h my self, I would like to use
 ptrlist from the standard libary or boost again, but the compiler won't let me.
 
