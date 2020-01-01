@@ -25,6 +25,11 @@ void DeleteListAndTheirElements(list<D*>* l, typename list<D*>::iterator i)
     while (i!=l->begin());
     }
   delete l;
+
+  // alternative way (thx strager)
+  // for (i = l->rbegin();i!=l->rend();++i)
+  //   delete *i
+  // delete l;
   }
 
 #endif

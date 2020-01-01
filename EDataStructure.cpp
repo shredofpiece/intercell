@@ -76,7 +76,7 @@ InputNode::~InputNode()
 
 OutputNode::OutputNode()  // Motor neuron, Secretatory neuron
   {                                                                              if(debug_level>=5)  cout << "OutputNode::OutputNode()\tKonstruktor" << endl;
-  plp_sourceedge = new ptr_list<Edge*>;
+  plp_sourceedge = new list<Edge*>;
   }
 
 OutputNode::~OutputNode()
@@ -84,7 +84,7 @@ OutputNode::~OutputNode()
   delete plp_sourceedge;
   }
 
-//ptr_list<Edge*>::iterator OutputNode::HaveSourceEdgeFrom(uli count)
+//list<Edge*>::iterator OutputNode::HaveSourceEdgeFrom(uli count)
 //  {
 //  }
 
@@ -102,8 +102,8 @@ MotorNode::~MotorNode()
 
 InnerNode::InnerNode()
   {                                                                              if(debug_level>=5)  cout << "InnerNode::InnerNode()\tKonstruktor" << endl;
-  plp_sourceedge = new ptr_list<Edge*>;
-  plp_destedge   = new ptr_list<Edge*>;
+  plp_sourceedge = new list<Edge*>;
+  plp_destedge   = new list<Edge*>;
   }
 
 InnerNode::~InnerNode()
@@ -124,11 +124,11 @@ PyramidalNode::~PyramidalNode()
 
 // ============================================================================
 
-Layer::Layer(ptr_list<Node*>::iterator first, ptr_list<Node*>::iterator last):ilp_first(first), ilp_last(last)
+Layer::Layer(list<Node*>::iterator first, list<Node*>::iterator last):ilp_first(first), ilp_last(last)
   {
   }
 
-ptr_list<Node*>::iterator Layer::HaveNode(uli count)  // count bezeichnet Nummer des Listenelements (1 >= count >= letztes Element)
+list<Node*>::iterator Layer::HaveNode(uli count)  // count bezeichnet Nummer des Listenelements (1 >= count >= letztes Element)
   {                                                                              if(debug_level>=2)  cout << "HaveNode(count: " << count << ")" << endl;
   ilp_node=ilp_first;  // Iterator initialisieren
   --count;
@@ -146,14 +146,13 @@ ptr_list<Node*>::iterator Layer::HaveNode(uli count)  // count bezeichnet Nummer
 Net::Net()
   {
   poplp_node = new ObjectCare<Node>;
-  plp_layer = new ptr_list<Layer*>;                                                  if(debug_level>=5)  cout << "Net::Net()\tKonstruktor" << endl;
+  plp_layer = new list<Layer*>;                                                  if(debug_level>=5)  cout << "Net::Net()\tKonstruktor" << endl;
   }
 
 Net::~Net()
   {                                                                              if(debug_level>=5)  cout << "Net::~Net()\tDestruktor" << endl;
   delete poplp_node;
-  //DeleteListAndTheirElements<Layer>(plp_layer, ilp_layer);
-  delete plp_layer;
+  DeleteListAndTheirElements<Layer>(plp_layer, ilp_layer);
   }
 
 // ============================================================================
