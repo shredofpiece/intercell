@@ -81,8 +81,10 @@ E   Element
 T   Template
 
 Variables
-plp         (p)outer to (l)ist containing (p)ointers
-ilo         (i)terator of (l)ist containing (p)ointers
+mp          (m)ember variable holding a (p)ointer
+plp         (p)ointer to (l)ist holding (p)ointers
+ilp         (i)terator of (l)ist holding (p)ointers
+poplp(m)    poiter to object holding pointer to list holding pointers (member variable (implyed))
 
 Templates
 D           Data

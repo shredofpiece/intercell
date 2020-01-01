@@ -2,42 +2,43 @@
 #define EDataStructureH
 
 #include <iostream>         // cout
-#include <list>
+//#include <list>
 #include <typeinfo>         // typeid
 //#include <type_traits>    // is_baseof
-//#include <boost/ptr_container/ptr_list.hpp>  // newer version of C++? innerhalb boost: [C++ Fehler] remove_cv.hpp(22): E2238 Bezeichner 'remove_cv<T>' mehrfach deklariert
-#include "TDeleteListAndTheirElements.h"
+#include <boost/ptr_container/ptr_list.hpp>  // newer version of C++? innerhalb boost: [C++ Fehler] remove_cv.hpp(22): E2238 Bezeichner 'remove_cv<T>' mehrfach deklariert
+//#include "TDeleteListAndTheirElements.h"
 #include "EDatatype.h"
 //#include "ETime.h"
 #include "EDebug.h"         // debug_level
-using std::list;
+//using std::list;
 using std::cout;
 using std::endl;
-//using boost::ptr_list;
+using boost::ptr_list;
 
 // ----------------------------------------------------------------------------
 
 template <typename B>  // B=Base(Class)  // Als Basisklasse ?
 class ObjectCare
   {
-  list<B*>* plp;
-  typename list<B*>::iterator ilp;
+  ptr_list<B*>* plp;
+  typename ptr_list<B*>::iterator ilp;
  public:
   ObjectCare()
     {                                                                            if(debug_level>=5)  cout << "ObjectCare::ObjectCare()\tKonstruktor" << endl;
-    plp = new list<B*>;
+    plp = new ptr_list<B*>;
     }
   ~ObjectCare()
     {                                                                            if(debug_level>=5)  cout << "ObjectCare::~ObjectCare()\tDestruktor" << endl;
-    DeleteListAndTheirElements<B>(plp,ilp);  // Mit g++ not declared in this scope, wenn dieser Header in TDeleteListAndTheirElements.h inkludiert
+    //DeleteListAndTheirElements<B>(plp,ilp);  // Mit g++ not declared in this scope, wenn dieser Header in TDeleteListAndTheirElements.h inkludiert
+    delete plp;  // Mit g++ not declared in this scope, wenn dieser Header in TDeleteListAndTheirElements.h inkludiert
     }
-  template <typename D/*, typename... Args*/>  // D=Data (Type of pointer in list), C=count
+  template <typename D/*, typename... Args*/>  // D=Data (Type of pointer in ptr_list), C=count
   void AddElement(/*Args... args*/)
     {
     plp->push_back(new D/*(args...)*/);                                                       // [C++ Warnung] EDataStructure.h(20): W8030 Temporäre Größe für Parameter '__x' in Aufruf von 'list<Node *,allocator<Node *> >::push_back(Node * const &)' verwendet
     }
-  template <typename D, typename C/*, typename... Args*/>  // D=Data (Type of pointer in list), C=count,  // A=Arguments (for Constructor)
-  typename list<B*>::iterator HaveElement(C count/*, Args... args*/)
+  template <typename D, typename C/*, typename... Args*/>  // D=Data (Type of pointer in ptr_list), C=count,  // A=Arguments (for Constructor)
+  typename ptr_list<B*>::iterator HaveElement(C count/*, Args... args*/)
     {                                                                            if(debug_level>=1)  cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")" << endl << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAnfangsobjektanzahl: " << plp->size() << endl;
     while(plp->size()<count)  // Solange Basisgröße kleiner Auswahl              // Wenn Mehrfachvererbung und zusammenführung InnerNode->InputNode, OutputNode->Node anscheinend keine Typkompatibilität von InnerNode zur Liste mit Zeigern auf die Basisklasse Node:
       AddElement<D/*,Args...*/>(/*args...*/);        // Füge Element hinzu
@@ -120,7 +121,7 @@ class InputNode : public Node
   InputNode();
   ~InputNode();
   template <typename D>
-  list<Edge*>::iterator HaveDestEdgeTo(uli count)  // virtual  [C++ Fehler] EDataStructure.h(101): E2462 'virtual' kann nur für Nicht-Template-Elementfunktionen verwendet werden
+  ptr_list<Edge*>::iterator HaveDestEdgeTo(uli count)  // virtual  [C++ Fehler] EDataStructure.h(101): E2462 'virtual' kann nur für Nicht-Template-Elementfunktionen verwendet werden
     {
     return poplp_destedge->HaveElement<D>(count);
     }
@@ -129,12 +130,12 @@ class InputNode : public Node
 class OutputNode : public Node
   {
  protected:
-  list<Edge*>* plp_sourceedge;
-  list<Edge*>::iterator ilp_sourceedge;
+  ptr_list<Edge*>* plp_sourceedge;
+  ptr_list<Edge*>::iterator ilp_sourceedge;
  public:
   OutputNode();
   ~OutputNode();
-  //virtual list<Edge*>::iterator HaveSourceEdgeFrom(uli count);
+  //virtual ptr_list<Edge*>::iterator HaveSourceEdgeFrom(uli count);
   };
 
 /*class MotorNode : public OutputNode  // test
@@ -147,10 +148,10 @@ class OutputNode : public Node
 class InnerNode : public Node  // Bei Mehrfachvererbung und Zusammenführung anscheinend nicht typkompatibel zur Liste mit Zeigern auf den Basisklassentyp.
   {                            // Daher Vererbung von public Node statt von public InputNode, public OutputNode
  protected:                    // und Redundanz von deren Listen und Itteratoren in InnerNode.
-  list<Edge*>* plp_destedge;
-  list<Edge*>::iterator ilp_destedge;
-  list<Edge*>* plp_sourceedge;
-  list<Edge*>::iterator ilp_sourceedge;
+  ptr_list<Edge*>* plp_destedge;
+  ptr_list<Edge*>::iterator ilp_destedge;
+  ptr_list<Edge*>* plp_sourceedge;
+  ptr_list<Edge*>::iterator ilp_sourceedge;
  public:
   InnerNode();
   ~InnerNode();
@@ -167,17 +168,17 @@ class PyramidalNode : public InnerNode
 
 class Layer
   {
-  list<Node*>::iterator ilp_first;
-  list<Node*>::iterator ilp_node;
-  list<Node*>::iterator ilp_last;
+  ptr_list<Node*>::iterator ilp_first;
+  ptr_list<Node*>::iterator ilp_node;
+  ptr_list<Node*>::iterator ilp_last;
  public:
   //Layer();
-  Layer(list<Node*>::iterator first, list<Node*>::iterator last);
-  //list<Node*>::iterator GetStart() const;
-  list<Node*>::iterator HaveNode(uli count);
-  //list<Node*>::iterator GetEnd() const;
-  //list<Node*>::iterator SetStart(list<Node*>::iterator first);
-  //list<Node*>::iterator SetEnd(list<Node*>::iterator last);
+  Layer(ptr_list<Node*>::iterator first, ptr_list<Node*>::iterator last);
+  //ptr_list<Node*>::iterator GetStart() const;
+  ptr_list<Node*>::iterator HaveNode(uli count);
+  //ptr_list<Node*>::iterator GetEnd() const;
+  //ptr_list<Node*>::iterator SetStart(ptr_list<Node*>::iterator first);
+  //ptr_list<Node*>::iterator SetEnd(ptr_list<Node*>::iterator last);
   };
 
 // ----------------------------------------------------------------------------
@@ -185,13 +186,13 @@ class Layer
 class Net
   {
   ObjectCare<Node>* poplp_node;
-  list<Layer*>* plp_layer;
-  list<Layer*>::iterator ilp_layer;
+  ptr_list<Layer*>* plp_layer;
+  ptr_list<Layer*>::iterator ilp_layer;
  public:
   Net();
   ~Net();
   template <typename D>
-  list<Node*>::iterator HaveNode(uli count)
+  ptr_list<Node*>::iterator HaveNode(uli count)
     {
     return poplp_node->HaveElement<D>(count);
     }
@@ -211,7 +212,7 @@ class Set
   Set();
   ~Set();
   template <typename D>                    // Wenn HaveNet=Net Ausdruckssyntaxfehler bei plp_net = new list<Net*>;
-  list<Net*>::iterator HaveNet(usi count)  // Wenn typename D in Funktionsparametern: [C++ Fehler] EDataStructure.cpp(165): E2439 'typename' ist nur in Template-Deklarationen zulässig
+  ptr_list<Net*>::iterator HaveNet(usi count)  // Wenn typename D in Funktionsparametern: [C++ Fehler] EDataStructure.cpp(165): E2439 'typename' ist nur in Template-Deklarationen zulässig
     {
     return poplp_net->HaveElement<D>(count);
     }
