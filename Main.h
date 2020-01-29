@@ -10,6 +10,4 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-void cmdargs(int *argc, char *const *argv);
-
 #endif

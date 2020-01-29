@@ -1,6 +1,7 @@
 #include "ECmdArg.h"
 
-void cmdargs(int *argc, char *argv[])
+//void cmdargs(int *argc, char **argv)
+void cmdargs(int *argc, char * const* argv)
   {
   // defining global variable debug_level
   if(*argc<2)

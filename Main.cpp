@@ -9,7 +9,9 @@
     debug_level=*(argv[1])-48;
   }*/
 
-int main(int argc, char *argv[])
+//int main(int argc, char* argv[])
+//int main(int argc, char **argv)
+int main(int argc, char * const* argv)
   {
   cmdargs(&argc,argv);
 
