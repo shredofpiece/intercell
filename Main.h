@@ -2,7 +2,7 @@
 #define MAINH
 
 #include <iostream>             // cin, cout
-//#include "ECmdArg.h"            // cmdargs
+#include "ECmdArg.h"            // cmdargs
 #include "EDataStructure.h"     // Set
 // #include "EDatatype.h"
 #include "EDebug.h"             // debug_level
