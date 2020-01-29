@@ -47,7 +47,7 @@ Node* NodeNode_Edge::DestNode() const
 Node::Node()
   {
   mp_voltage = new vtg;
-  SetVoltage(-0.7);                                                              if(debug_level>=5)  cout << "Node::Node()\tKonstruktor" << endl;
+  SetVoltage(-0.07);                                                              if(debug_level>=5)  cout << "Node::Node()\tKonstruktor" << endl;
   }
 
 Node::~Node()

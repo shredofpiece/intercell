@@ -1,8 +1,8 @@
 #ifndef EDebugH
 #define EDebugH
 
-#include "EDatatype.h"        // usi
+#include "EDatatype.h"        // dbg
 
-extern usi debug_level;
+extern dbg debug_level;
 
 #endif

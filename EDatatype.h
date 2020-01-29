@@ -1,28 +1,35 @@
 #ifndef EDatatypeH
 #define EDatatypeH
 
-#include <iostream>  // Operator overloading, (cout)
+//#include <iostream>  // (cout), Operator overloading, crossincludes cstdint?
+#include <cstdint>   // Datatypes by exact size
 #include <limits>
+//#include <bitset>
+//using std::uint8_t;
+using std::uint16_t;
+using std::uint64_t;
+//using std::int64_t;
 using std::numeric_limits;
-using std::ostream;
-using std::cout;
-using std::endl;
+//using std::ostream;
+//using std::cout;
+//using std::endl;
 
 // ----------------------------------------------------------------------------
 
-const unsigned short int USI_MIN=numeric_limits<unsigned short int>::min();  // C++11 for g++ and BCB
-const unsigned short int USI_MAX=numeric_limits<unsigned short int>::max();
-const unsigned long int ULI_MIN=numeric_limits<unsigned long int>::min();
-const unsigned long int ULI_MAX=numeric_limits<unsigned long int>::max();
+typedef uint16_t usi;     // 2*8bit, unsigned short int
+typedef uint64_t uli;     // 8*8bit, Mengen (von Elementen), unsigned long long int
+//typedef int64_t pos;    // 4*8bit, signed long int
+typedef double wgt;       // 8*8bit
+typedef float dey;        // 4*8bit
+typedef long double vtg;  // 12*8bit
+typedef uint16_t dbg;      // 1*8bit, debug level, unsigned short int
 
 // ----------------------------------------------------------------------------
 
-typedef unsigned short int usi;
-typedef unsigned long int uli;
-//typedef signed long int pos;
-typedef double wgt;
-typedef float dey;
-typedef long double vtg;
+const usi USI_MIN=numeric_limits<usi>::min();
+const usi USI_MAX=numeric_limits<usi>::max();
+const uli ULI_MIN=numeric_limits<uli>::min();
+const uli ULI_MAX=numeric_limits<uli>::max();
 
 // ----------------------------------------------------------------------------
 

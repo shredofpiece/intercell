@@ -1,15 +1,20 @@
-#include "NN.h"
+#include "Main.h"
 
-int main(int argc, char* argv[])
+void cmdargs(int *argc, char *argv[])
   {
   // defining global variable debug_level
-  if(argc<2)
+  if(*argc<2)
     debug_level = 1;
   else
     debug_level=*(argv[1])-48;
+  }
 
-  // printing debug level, if there is one
-  if(debug_level>=1)  cout << "Debug-Level: " << debug_level << endl << endl << "Netzstruktur aufbauen" << endl << endl;
+int main(int argc, char *argv[])
+  {
+  cmdargs(&argc,argv);
+
+  // printing debug level, if there is one (+var casts to according int types. here for printing char as number)
+  if(debug_level>=1)  cout << "Debug-Level: " << +debug_level << endl << endl << "Netzstruktur aufbauen" << endl << endl;
 
   Set* p_set = new Set;  // Add set
   // Example network:  Input:      Hidden:      Output:
@@ -41,9 +46,9 @@ int main(int argc, char* argv[])
     //cout << "############### " << s1.GetInt() << endl;
     //.operator<<;
 
-  if(debug_level>=1)  // Dummyinput for preventing the console window
-    {                 // from beeing closed automatically in some environments.
-    cin.get();
+  if(debug_level>=1)
+    {                 // Dummyinput for preventing the console window
+    cin.get();        // from beeing closed automatically in some environments.
     cout << "Netzstruktur abbauen" << endl;
     }
   delete p_set;

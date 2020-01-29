@@ -87,9 +87,9 @@ ilp         (i)terator of (l)ist holding (p)ointers
 poplp(m)    poiter to object holding pointer to list holding pointers (member variable (implyed))
 
 Templates
-D           Data
+D           Data (Type of pointer in list)
 C           count
-B
+B           Base(Class) => Basisklasse
 
 Logging
 ObjC        (Obj)ect(C)are

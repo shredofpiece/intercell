@@ -199,6 +199,7 @@ class Net
   void DefineLayer(uli first, uli last)  // Erstes vor dem letzten Element oder gleich (first<=last)
     {                                                                              if(debug_level>=1)  cout << "Net::DefineLayer(first: " << first << ", last: " << last << ")" << endl;
     plp_layer->push_back(new Layer(HaveNode<D>(first),HaveNode<D>(last)));  // boost ptr_list not having push_back  // Mit ptr_list error: no matching function for call to 'boost::ptr_list<Layer*>::push_back(Layer*&)'
+    //plp_layer->push_back(new Layer(HaveElement<D>(first),HaveElement<D>(last)));  // boost ptr_list not having push_back  // Mit ptr_list error: no matching function for call to 'boost::ptr_list<Layer*>::push_back(Layer*&)'
     }
   };
 
