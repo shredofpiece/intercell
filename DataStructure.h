@@ -112,7 +112,7 @@ class Node  // Neuron: soma
   void SetVoltage(vtg mp_voltage);
   };
 
-class InputNode : public Node
+class InputNode// : public Node
   {
  protected:
   ObjectCare<Edge>* poplp_destedge;
@@ -126,7 +126,7 @@ class InputNode : public Node
     }
   };
 
-class OutputNode : public Node
+class OutputNode// : public Node
   {
  protected:
   //list<Edge*>* plp_sourceedge;

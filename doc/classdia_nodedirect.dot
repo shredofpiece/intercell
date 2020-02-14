@@ -1,0 +1,21 @@
+digraph Beziehungen
+  {
+  "Edge" -> "Edge" [label="l/Nt"]
+  "Edge" -> "Node"
+  "Node" -> "Net"
+  "Net"  -> "Set"
+
+  "Node"  -> "Layer"
+  "Layer" -> "Net"
+
+  "Edge" -> "NodeEdge_Edge"
+  "Edge" -> "EdgeNode_Edge"
+  "Edge" -> "NodeNode_Edge"
+
+  "InputNode"  -> "InnerNode"
+  "OutputNode" -> "InnerNode"
+  "OutputNode" -> "MotorNode"
+  "Node"       -> "MotorNode"
+  "InnerNode"  -> "PyramidalNode"
+  "Node"       -> "PyramidalNode"
+  }

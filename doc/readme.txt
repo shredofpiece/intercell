@@ -30,7 +30,7 @@ SetX---NetX---NodeX------Edge---------
            InnerNode        |O-----EdgeNode_Edge
                O            |
                |            |
-         PyramidalNode      |O-----NodeEdge_Edge
+         PyramidalNode      |O-----NodeNode_Edge
 
 Classes without relationships:
 ObjectCare, DeleteListAndTheirElements
