@@ -2,10 +2,10 @@
 #define MAINH
 
 #include <iostream>             // cin, cout
-#include "ECmdArg.h"            // cmdargs
-#include "EDataStructure.h"     // Set
-// #include "EDatatype.h"
-#include "EDebug.h"             // debug_level
+#include "CmdArg.h"             // cmdargs
+#include "DataStructure.h"      // Set
+// #include "Datatype.h"
+#include "Debug.h"              // debug_level
 using std::cin;
 using std::cout;
 using std::endl;

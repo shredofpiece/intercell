@@ -1,18 +1,6 @@
 #include "Main.h"
 
-/*void cmdargs(int *argc, char *argv[])
-  {
-  // defining global variable debug_level
-  if(*argc<2)
-    debug_level = 1;
-  else
-    debug_level=*(argv[1])-48;
-  }*/
-
-//int main(int argc, char * argv[])
-int main(int argc, char * const argv[])
-//int main(int argc, char **argv)
-//int main(int argc, char * const* argv)
+int main(int argc, char * const argv[])  // alternatives: char * argv[], char **argv, char * const* argv
   {
   cmdargs(&argc,argv);
 

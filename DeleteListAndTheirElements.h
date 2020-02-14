@@ -1,10 +1,10 @@
-#ifndef TDeleteListAndTheirElementsH
-#define TDeleteListAndTheirElementsH
+#ifndef DeleteListAndTheirElementsH
+#define DeleteListAndTheirElementsH
 
 #include <iostream>  // cout
 #include <list>
 #include <typeinfo>  // typeid
-#include "EDebug.h"  // debug_level
+#include "Debug.h"  // debug_level
 using std::list;
 using std::cout;
 using std::endl;

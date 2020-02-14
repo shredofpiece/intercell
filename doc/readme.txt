@@ -49,9 +49,10 @@ EDataStructure.h                +workaround (ObjectCare)
 EDatatype.h                     typedefs, ranges, (counting from 1 instead of 0)
 EDebug.h                        deklaring integer debug_level
 TDeleteListAndTheirElements.h   freeing memory
-run                             executable for debian
-bad.txt                         errors
-readme.txt                      this
+run                             executable after building
+doc/bad.txt                     errors
+doc/readme.txt                  this
+log/.                           console output
 
 
 What it does
@@ -75,9 +76,10 @@ Debug level
 Abbreviations
 =============
 
-
 Filenames
-E   Element
+V   Variable
+F   Function
+E   Element (Class)
 T   Template
 
 Variables
@@ -95,3 +97,9 @@ Logging
 ObjC        (Obj)ect(C)are
 HavEl       (Hav)e(El)ement
 DelLstEl    (Del)ete(L)i(st)AndTheir(El)ements
+
+
+Explainations
+=============
+Layers can not be handled by ObjectCare because..
+..(structure: first, last, actual element ?)..

@@ -1,4 +1,4 @@
-#include "EDataStructure.h"
+#include "DataStructure.h"
 
 // ============================================================================
 
@@ -47,7 +47,7 @@ Node* NodeNode_Edge::DestNode() const
 Node::Node()
   {
   mp_voltage = new vtg;
-  SetVoltage(-0.07);                                                              if(debug_level>=5)  cout << "Node::Node()\tKonstruktor" << endl;
+  SetVoltage(-0.07);                                                             if(debug_level>=5)  cout << "Node::Node()\tKonstruktor" << endl;
   }
 
 Node::~Node()
@@ -76,15 +76,17 @@ InputNode::~InputNode()
 
 OutputNode::OutputNode()  // Motor neuron, Secretatory neuron
   {                                                                              if(debug_level>=5)  cout << "OutputNode::OutputNode()\tKonstruktor" << endl;
-  plp_sourceedge = new list<Edge*>;
+  // plp_sourceedge = new list<Edge*>;
+  poplp_sourceedge = new ObjectCare<Edge>;
   }
 
 OutputNode::~OutputNode()
   {                                                                              if(debug_level>=5)  cout << "OutputNode::~OutputNode()\tDestruktor" << endl;
-  delete plp_sourceedge;
+  // delete plp_sourceedge;
+  delete poplp_sourceedge;
   }
 
-//list<Edge*>::iterator OutputNode::HaveSourceEdgeFrom(uli count)
+//list<Edge*>::iterator OutputNode::HaveSourceEdgeFrom(cnoe count)
 //  {
 //  }
 
@@ -102,14 +104,14 @@ MotorNode::~MotorNode()
 
 InnerNode::InnerNode()
   {                                                                              if(debug_level>=5)  cout << "InnerNode::InnerNode()\tKonstruktor" << endl;
-  plp_sourceedge = new list<Edge*>;
-  plp_destedge   = new list<Edge*>;
+  //plp_sourceedge = new list<Edge*>;
+  //plp_destedge   = new list<Edge*>;
   }
 
 InnerNode::~InnerNode()
   {                                                                              if(debug_level>=5)  cout << "InnerNode::~InnerNode()\tDestruktor" << endl;
-  delete plp_sourceedge;
-  delete plp_destedge;
+  //delete plp_sourceedge;
+  //delete plp_destedge;
   }
 
 // ----------------------------------------------------------------------------
@@ -128,7 +130,7 @@ Layer::Layer(list<Node*>::iterator first, list<Node*>::iterator last):ilp_first(
   {
   }
 
-list<Node*>::iterator Layer::HaveNode(uli count)  // count bezeichnet Nummer des Listenelements (1 >= count >= letztes Element)
+list<Node*>::iterator Layer::HaveNode(cnod count)  // count bezeichnet Nummer des Listenelements (1 >= count >= letztes Element)
   {                                                                              if(debug_level>=2)  cout << "HaveNode(count: " << count << ")" << endl;
   ilp_node=ilp_first;  // Iterator initialisieren
   --count;

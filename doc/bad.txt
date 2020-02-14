@@ -21,3 +21,29 @@ Non intuitive counting from zero.
 
 Is ist possible to replace/redo Class/Template Structure in ASM
 for more ->flexibility<- regarding this particular modeling purpose ?
+
+what would i do different in assembler ?
+
+deeper inheritance instead of objcare
+doin list
+
+
+
+
+ListAndIteratorObjectCare
+
+
+layer has 3 iterators and no list (per element)
+objcare has one list and one iterator (per element)
+therefore layer does not fit into objcare
+ 
+layers can be defined as a list of elements (nodes (,edges))
+then it would fit into objcare
+
+objcare backport
+
+
+
+
+
+

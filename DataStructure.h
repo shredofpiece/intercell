@@ -1,15 +1,15 @@
-#ifndef EDataStructureH
-#define EDataStructureH
+#ifndef DataStructureH
+#define DataStructureH
 
 #include <iostream>         // cout
 #include <list>
 #include <typeinfo>         // typeid
 //#include <type_traits>    // is_baseof
 //#include <boost/ptr_container/ptr_list.hpp>  // newer version of C++? innerhalb boost: [C++ Fehler] remove_cv.hpp(22): E2238 Bezeichner 'remove_cv<T>' mehrfach deklariert
-#include "TDeleteListAndTheirElements.h"
-#include "EDatatype.h"
-//#include "ETime.h"
-#include "EDebug.h"         // debug_level
+#include "DeleteListAndTheirElements.h"
+#include "Datatype.h"
+//#include "Time.h"
+#include "Debug.h"         // debug_level
 using std::list;
 using std::cout;
 using std::endl;
@@ -18,7 +18,7 @@ using std::endl;
 // ----------------------------------------------------------------------------
 
 template <typename B>  // B=Base(Class)  // Als Basisklasse ?
-class ObjectCare
+class ObjectCare       // ListAndIteratorObjectCare
   {
   list<B*>* plp;
   typename list<B*>::iterator ilp;
@@ -49,7 +49,7 @@ class ObjectCare
 
 // ----------------------------------------------------------------------------
 
-class Node;
+class Node;  // Vorwärtsdeklaration
 
 //class Hormon // (Neuro)hormone distribution  // parakrin, neuroendokrin (z.B chemisches rufen nach axonalen synapsen)
 
@@ -119,8 +119,8 @@ class InputNode : public Node
  public:
   InputNode();
   ~InputNode();
-  template <typename D>
-  list<Edge*>::iterator HaveDestEdgeTo(uli count)  // virtual  [C++ Fehler] EDataStructure.h(101): E2462 'virtual' kann nur für Nicht-Template-Elementfunktionen verwendet werden
+  template <typename D>  // datatype of count depends on D -> taking biggest till better solutuion see also datatype.h
+  list<Edge*>::iterator HaveDestEdgeTo(cnoe count)  // virtual  [C++ Fehler] EDataStructure.h(101): E2462 'virtual' kann nur für Nicht-Template-Elementfunktionen verwendet werden
     {
     return poplp_destedge->HaveElement<D>(count);
     }
@@ -129,12 +129,18 @@ class InputNode : public Node
 class OutputNode : public Node
   {
  protected:
-  list<Edge*>* plp_sourceedge;
-  list<Edge*>::iterator ilp_sourceedge;
+  //list<Edge*>* plp_sourceedge;
+  //list<Edge*>::iterator ilp_sourceedge;
+  ObjectCare<Edge>* poplp_sourceedge;
  public:
   OutputNode();
   ~OutputNode();
-  //virtual list<Edge*>::iterator HaveSourceEdgeFrom(uli count);
+  //virtual list<Edge*>::iterator HaveSourceEdgeFrom(cnoe count);
+  template <typename D>  // datatype of count depends on D  see above (InputNode)
+  list<Edge*>::iterator HaveSourceEdgeFrom(cnoe count)  // virtual -> E2462  see above (InputNode)
+    {
+    return poplp_sourceedge->HaveElement<D>(count);
+    }
   };
 
 /*class MotorNode : public OutputNode  // test
@@ -144,6 +150,13 @@ class OutputNode : public Node
   ~MotorNode();
   };*/
 
+class InnerNode : public InputNode, public OutputNode
+  {
+ public:
+  InnerNode();
+  ~InnerNode();
+  };
+/*
 class InnerNode : public Node  // Bei Mehrfachvererbung und Zusammenführung anscheinend nicht typkompatibel zur Liste mit Zeigern auf den Basisklassentyp.
   {                            // Daher Vererbung von public Node statt von public InputNode, public OutputNode
  protected:                    // und Redundanz von deren Listen und Itteratoren in InnerNode.
@@ -155,7 +168,7 @@ class InnerNode : public Node  // Bei Mehrfachvererbung und Zusammenführung ansc
   InnerNode();
   ~InnerNode();
   };
-
+*/
 class PyramidalNode : public InnerNode
   {
  public:
@@ -174,7 +187,7 @@ class Layer
   //Layer();
   Layer(list<Node*>::iterator first, list<Node*>::iterator last);
   //list<Node*>::iterator GetStart() const;
-  list<Node*>::iterator HaveNode(uli count);
+  list<Node*>::iterator HaveNode(cnod count);
   //list<Node*>::iterator GetEnd() const;
   //list<Node*>::iterator SetStart(list<Node*>::iterator first);
   //list<Node*>::iterator SetEnd(list<Node*>::iterator last);
@@ -191,12 +204,12 @@ class Net
   Net();
   ~Net();
   template <typename D>
-  list<Node*>::iterator HaveNode(uli count)
+  list<Node*>::iterator HaveNode(cnod count)
     {
     return poplp_node->HaveElement<D>(count);
     }
   template <typename D>
-  void DefineLayer(uli first, uli last)  // Erstes vor dem letzten Element oder gleich (first<=last)
+  void DefineLayer(cnod first, cnod last)  // Erstes vor dem letzten Element oder gleich (first<=last)
     {                                                                              if(debug_level>=1)  cout << "Net::DefineLayer(first: " << first << ", last: " << last << ")" << endl;
     plp_layer->push_back(new Layer(HaveNode<D>(first),HaveNode<D>(last)));  // boost ptr_list not having push_back  // Mit ptr_list error: no matching function for call to 'boost::ptr_list<Layer*>::push_back(Layer*&)'
     //plp_layer->push_back(new Layer(HaveElement<D>(first),HaveElement<D>(last)));  // boost ptr_list not having push_back  // Mit ptr_list error: no matching function for call to 'boost::ptr_list<Layer*>::push_back(Layer*&)'
@@ -212,7 +225,7 @@ class Set
   Set();
   ~Set();
   template <typename D>                    // Wenn HaveNet=Net Ausdruckssyntaxfehler bei plp_net = new list<Net*>;
-  list<Net*>::iterator HaveNet(usi count)  // Wenn typename D in Funktionsparametern: [C++ Fehler] EDataStructure.cpp(165): E2439 'typename' ist nur in Template-Deklarationen zulässig
+  list<Net*>::iterator HaveNet(cnet count)  // Wenn typename D in Funktionsparametern: [C++ Fehler] EDataStructure.cpp(165): E2439 'typename' ist nur in Template-Deklarationen zulässig
     {
     return poplp_net->HaveElement<D>(count);
     }
