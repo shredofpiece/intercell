@@ -28,9 +28,12 @@ deeper inheritance instead of objcare
 doin list
 
 
+Why is bool an int and not a char ?
 
 
 ListAndIteratorObjectCare
+Why cant i have objcare as common base class
+using polymorphism ?
 
 
 layer has 3 iterators and no list (per element)

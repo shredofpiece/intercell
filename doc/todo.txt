@@ -4,3 +4,31 @@ interesting
 bitfield
 bitset
 ptr_list
+
+D* -> D in objcare ?
+
+
+create receptorneuron
+unify edges
+
+inverse voltage for
+
+
+
+sgn binary per neuron
+wgt between 1 and -1
+
+backwards signalling ? dentrides not insulated but shorter
+
+2 values sgn_in and sgn_out ? sgn_out binary per cell
+
+all or nothing desicion
+signal transduction (sig no not sigma.. ..sgn) between 1 and -1 in molecular steps
+
+
+while burst continuously high
+gell is probing if still high ?
+
+
+max burstlength
+recovery time

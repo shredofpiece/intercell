@@ -47,7 +47,7 @@ Node* NodeNode_Edge::DestNode() const
 Node::Node()
   {
   mp_voltage = new vtg;
-  SetVoltage(-0.07);                                                             if(debug_level>=5)  cout << "Node::Node()\tKonstruktor" << endl;
+  SetVoltage(-0.07f);                                                            if(debug_level>=5)  cout << "Node::Node()\tKonstruktor" << endl;
   }
 
 Node::~Node()
@@ -76,42 +76,46 @@ InputNode::~InputNode()
 
 OutputNode::OutputNode()  // Motor neuron, Secretatory neuron
   {                                                                              if(debug_level>=5)  cout << "OutputNode::OutputNode()\tKonstruktor" << endl;
-  // plp_sourceedge = new list<Edge*>;
   poplp_sourceedge = new ObjectCare<Edge>;
   }
 
 OutputNode::~OutputNode()
   {                                                                              if(debug_level>=5)  cout << "OutputNode::~OutputNode()\tDestruktor" << endl;
-  // delete plp_sourceedge;
   delete poplp_sourceedge;
   }
 
-//list<Edge*>::iterator OutputNode::HaveSourceEdgeFrom(cnoe count)
+//list<Edge*>::iterator OutputNode::HaveSourceEdgeFrom(cnoe count)  // what is its source edge ?
 //  {
 //  }
 
 // ----------------------------------------------------------------------------
-/*
-MotorNode::MotorNode()
-  {                                                                              if(debug_level>=5)  cout << "MotorNode::MotorNode()\tKonstruktor" << endl;
+
+ReceptorNode::ReceptorNode()
+  {                                                                              if(debug_level>=5)  cout << "ReceptorNode::ReceptorNode()\tKonstruktor" << endl;
   }
 
-MotorNode::~MotorNode()
-  {                                                                              if(debug_level>=5)  cout << "MotorNode::~MotorNode()\tDestruktor" << endl;
+ReceptorNode::~ReceptorNode()
+  {                                                                              if(debug_level>=5)  cout << "ReceptorNode::~ReceptorNode()\tDestruktor" << endl;
   }
-*/
+
+// ----------------------------------------------------------------------------
+
+ActorNode::ActorNode()
+  {                                                                              if(debug_level>=5)  cout << "ActorNode::ActorNode()\tKonstruktor" << endl;
+  }
+
+ActorNode::~ActorNode()
+  {                                                                              if(debug_level>=5)  cout << "ActorNode::~ActorNode()\tDestruktor" << endl;
+  }
+
 // ----------------------------------------------------------------------------
 
 InnerNode::InnerNode()
   {                                                                              if(debug_level>=5)  cout << "InnerNode::InnerNode()\tKonstruktor" << endl;
-  //plp_sourceedge = new list<Edge*>;
-  //plp_destedge   = new list<Edge*>;
   }
 
 InnerNode::~InnerNode()
   {                                                                              if(debug_level>=5)  cout << "InnerNode::~InnerNode()\tDestruktor" << endl;
-  //delete plp_sourceedge;
-  //delete plp_destedge;
   }
 
 // ----------------------------------------------------------------------------
@@ -122,6 +126,16 @@ PyramidalNode::PyramidalNode()
 
 PyramidalNode::~PyramidalNode()
   {                                                                              if(debug_level>=5)  cout << "PyramidalNode::~PyramidalNode()\tDestruktor" << endl;
+  }
+
+// ----------------------------------------------------------------------------
+
+MotorNode::MotorNode()
+  {                                                                              if(debug_level>=5)  cout << "MotorNode::MotorNode()\tKonstruktor" << endl;
+  }
+
+MotorNode::~MotorNode()
+  {                                                                              if(debug_level>=5)  cout << "MotorNode::~MotorNode()\tDestruktor" << endl;
   }
 
 // ============================================================================

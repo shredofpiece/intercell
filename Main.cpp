@@ -12,14 +12,14 @@ int main(int argc, char * const argv[])  // alternatives: char * argv[], char **
   //                    (1)          (3)                 // Other example: 64+45+45+27=181
   //                    (2)          (4)          (6)
   //                                 (5)          (7)
-  //(*(p_set->HaveNet<Net>(1)))->HaveNode<InputNode>(2);
+  (*(p_set->HaveNet<Net>(1)))->HaveNode<ReceptorNode>(2);
   (*(p_set->HaveNet<Net>(1)))->HaveNode<PyramidalNode>(5);
-  //(*(p_set->HaveNet<Net>(1)))->HaveNode<OutputNode>(7);
+  (*(p_set->HaveNet<Net>(1)))->HaveNode<ActorNode>(7);
 
   // Schichten:
-  //(*(p_set->HaveNet<Net>(1)))->DefineLayer<InputNode>(1,2);
-  //(*(p_set->HaveNet<Net>(1)))->DefineLayer<PyramidalNode>(3,5);
-  //(*(p_set->HaveNet<Net>(1)))->DefineLayer<OutputNode>(6,7);
+  (*(p_set->HaveNet<Net>(1)))->DefineLayer<InputNode>(1,2);
+  (*(p_set->HaveNet<Net>(1)))->DefineLayer<PyramidalNode>(3,5);
+  (*(p_set->HaveNet<Net>(1)))->DefineLayer<OutputNode>(6,7);
 
   if(debug_level>=1)  cout << endl << "Netzstruktur aufgebaut";
 

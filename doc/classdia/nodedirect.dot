@@ -1,0 +1,11 @@
+digraph
+  {
+  "InputNode"  -> "InnerNode"
+  "OutputNode" -> "InnerNode"
+  "Node"       -> "MotorNode"
+  "OutputNode" -> "MotorNode"
+  "Node"       -> "ReceptorNode"
+  "OutputNode" -> "ReceptorNode"
+  "Node"       -> "PyramidalNode"
+  "InnerNode"  -> "PyramidalNode"
+  }

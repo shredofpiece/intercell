@@ -1,6 +1,6 @@
 digraph Beziehungen
   {
-  "Edge" -> "Edge" [label="l/Nt"]
+  "Edge" -> "Edge"
   "Edge" -> "Node"
   "Node" -> "Net"
   "Net"  -> "Set"

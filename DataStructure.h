@@ -17,7 +17,7 @@ using std::endl;
 
 // ----------------------------------------------------------------------------
 
-template <typename B>  // B=Base(Class)  // Als Basisklasse ?
+template <typename B>  // B=Basis(klasse), D=Data, C=Count
 class ObjectCare       // ListAndIteratorObjectCare
   {
   list<B*>* plp;
@@ -38,11 +38,11 @@ class ObjectCare       // ListAndIteratorObjectCare
     }
   template <typename D, typename C/*, typename... Args*/>  // D=Data (Type of pointer in list), C=count,  // A=Arguments (for Constructor)
   typename list<B*>::iterator HaveElement(C count/*, Args... args*/)
-    {                                                                            if(debug_level>=1)  cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")" << endl << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAnfangsobjektanzahl: " << plp->size() << endl;
+    {                                                                            if(debug_level>=1)  cout << "ObjC::HavEl(" << +count << ". Typ: " << typeid(D).name() << ")" << endl << "ObjC::HavEl(" << +count << ". Typ: " << typeid(D).name() << ")\tAnfangsobjektanzahl: " << plp->size() << endl;
     while(plp->size()<count)  // Solange Basisgröße kleiner Auswahl              // Wenn Mehrfachvererbung und zusammenführung InnerNode->InputNode, OutputNode->Node anscheinend keine Typkompatibilität von InnerNode zur Liste mit Zeigern auf die Basisklasse Node:
       AddElement<D/*,Args...*/>(/*args...*/);        // Füge Element hinzu
-    ilp=plp->begin();         /* Itterator inititialisieren   */                 if(debug_level>=6)  cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tilp = plp->begin(): " << *ilp << endl;
-    advance(ilp, count-1);    /* Auf Auswahl Zeigen           */                 if(debug_level>=1)  cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tEndobjektanzahl: " << plp->size() << endl;  if(debug_level>=6)  cout << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAdr. 1.\tObjekt: " << *(plp->begin()) << endl << "ObjC::HavEl(" << count << ". Typ: " << typeid(D).name() << ")\tAdr. " << count << ".\tObjekt: " << *ilp << " (Rueckgabe)" << endl;
+    ilp=plp->begin();         /* Itterator inititialisieren   */                 if(debug_level>=6)  cout << "ObjC::HavEl(" << +count << ". Typ: " << typeid(D).name() << ")\tilp = plp->begin(): " << *ilp << endl;
+    advance(ilp, count-1);    /* Auf Auswahl Zeigen           */                 if(debug_level>=1)  cout << "ObjC::HavEl(" << +count << ". Typ: " << typeid(D).name() << ")\tEndobjektanzahl: " << plp->size() << endl;  if(debug_level>=6)  cout << "ObjC::HavEl(" << +count << ". Typ: " << typeid(D).name() << ")\tAdr. 1.\tObjekt: " << *(plp->begin()) << endl << "ObjC::HavEl(" << +count << ". Typ: " << typeid(D).name() << ")\tAdr. " << +count << ".\tObjekt: " << *ilp << " (Rueckgabe)" << endl;
     return ilp;               // Zeig auf Auswahl zurückgeben
     }
   };
@@ -57,7 +57,6 @@ class Edge  // Synaptic gap, synapses (weight), axon, dentride
   {
  protected:
   wgt* mp_weight;
-  //pos* mp_pos_x, mp_pos_y, mp_pos_z;
   dey* mp_delay;
  public:
   Edge(wgt weight=0.0, dey delay=0.0);
@@ -91,7 +90,7 @@ class EdgeNode_Edge : public Edge  // Dendro-dentridic synapse
 class NodeNode_Edge : public Edge  // Axo-dentritic synapse
   {
  protected:
-  Node* mp_source;  // m=membervariable, P=pointer, l=list, i=iterator
+  Node* mp_source;
   Node* mp_dest;
  public:
   NodeNode_Edge(Node* p_source, Node* p_dest, wgt weight, dey delay);
@@ -112,13 +111,13 @@ class Node  // Neuron: soma
   void SetVoltage(vtg mp_voltage);
   };
 
-class InputNode// : public Node
+class InputNode
   {
  protected:
   ObjectCare<Edge>* poplp_destedge;
  public:
   InputNode();
-  ~InputNode();
+  virtual ~InputNode()=0;  // =0: pure: Kein eigenständiges Objekt
   template <typename D>  // datatype of count depends on D -> taking biggest till better solutuion see also datatype.h
   list<Edge*>::iterator HaveDestEdgeTo(cnoe count)  // virtual  [C++ Fehler] EDataStructure.h(101): E2462 'virtual' kann nur für Nicht-Template-Elementfunktionen verwendet werden
     {
@@ -126,15 +125,13 @@ class InputNode// : public Node
     }
   };
 
-class OutputNode// : public Node
+class OutputNode
   {
  protected:
-  //list<Edge*>* plp_sourceedge;
-  //list<Edge*>::iterator ilp_sourceedge;
   ObjectCare<Edge>* poplp_sourceedge;
  public:
   OutputNode();
-  ~OutputNode();
+  virtual ~OutputNode()=0;  // =0: pure: Kein eigenständiges Objekt
   //virtual list<Edge*>::iterator HaveSourceEdgeFrom(cnoe count);
   template <typename D>  // datatype of count depends on D  see above (InputNode)
   list<Edge*>::iterator HaveSourceEdgeFrom(cnoe count)  // virtual -> E2462  see above (InputNode)
@@ -143,37 +140,39 @@ class OutputNode// : public Node
     }
   };
 
-/*class MotorNode : public OutputNode  // test
+class ReceptorNode : public Node, public InputNode
   {
  public:
-  MotorNode();
-  ~MotorNode();
-  };*/
+  ReceptorNode();
+  ~ReceptorNode();
+  };
+
+class ActorNode : public Node, public OutputNode
+  {
+ public:
+  ActorNode();
+  ~ActorNode();
+  };
 
 class InnerNode : public InputNode, public OutputNode
   {
  public:
   InnerNode();
-  ~InnerNode();
+  ~InnerNode()=0;  // =0: pure: Kein eigenständiges Objekt  // virtual is inherrited
   };
-/*
-class InnerNode : public Node  // Bei Mehrfachvererbung und Zusammenführung anscheinend nicht typkompatibel zur Liste mit Zeigern auf den Basisklassentyp.
-  {                            // Daher Vererbung von public Node statt von public InputNode, public OutputNode
- protected:                    // und Redundanz von deren Listen und Itteratoren in InnerNode.
-  list<Edge*>* plp_destedge;
-  list<Edge*>::iterator ilp_destedge;
-  list<Edge*>* plp_sourceedge;
-  list<Edge*>::iterator ilp_sourceedge;
- public:
-  InnerNode();
-  ~InnerNode();
-  };
-*/
-class PyramidalNode : public InnerNode
+
+class PyramidalNode : public Node, public InnerNode
   {
  public:
   PyramidalNode();
   ~PyramidalNode();
+  };
+
+class MotorNode : public Node, public InnerNode
+  {
+ public:
+  MotorNode();
+  ~MotorNode();
   };
 
 // ----------------------------------------------------------------------------

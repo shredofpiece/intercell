@@ -1,0 +1,8 @@
+digraph
+  {
+  "Node" -> OutputNode
+  OutputNode -> MotorNode
+  "Node" -> InputNode
+  "Node" -> InnerNode
+  InnerNode -> PyramidalNode
+  }

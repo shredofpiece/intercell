@@ -86,12 +86,12 @@ Variables
 mp          (m)ember variable holding a (p)ointer
 plp         (p)ointer to (l)ist holding (p)ointers
 ilp         (i)terator of (l)ist holding (p)ointers
-poplp(m)    poiter to object holding pointer to list holding pointers (member variable (implyed))
+poplp(m)    (p)oiter to (o)bject holding (p)ointer to (l)ist holding (p)ointers ((m)ember variable (implyed))
 
 Templates
-D           Data (Type of pointer in list)
-C           count
-B           Base(Class) => Basisklasse
+D           Data (type of pointer in list)
+C           Count
+B           Base class => Basisklasse
 
 Logging
 ObjC        (Obj)ect(C)are
@@ -101,5 +101,73 @@ DelLstEl    (Del)ete(L)i(st)AndTheir(El)ements
 
 Explainations
 =============
+
+Have
+Get / Make and Get if not existing
+
+
+SourceEdgeFrom
+
+
+From/To is a Node or an Edge. The later regarding Advanced Connectivity.
+
+Node                           Node
+(/Edge)  Edge   Node  Edge  (/Edge)
+From-------------<o>-------------To
+        Source        Dest
+
+
+
+Connectivity
+------------
+
+
+Axo-dentritic synapse
+'''''''''''''''''''''
+
+<o>----|---------<o>
+   NodeNode_Edge
+
+
+Axo-axonic synapse
+''''''''''''''''''
+
+<o>---------|----<o>   (axons drawn longer than dentrides)
+              |
+              | <- NodeEdge_Edge
+              |
+<o>---------|----<o>
+Connection of a Node to an Etge
+
+The firing of the source neuron has a temporary influence
+(increase, also decrease?) on the weight of the destination edge (ShortTimePotentiation).
+
+
+Dendro-dentridic synapse
+''''''''''''''''''''''''
+
+<o>----|---------<o>
+     |
+     | <---------- EdgeNode_Edge
+     |
+<o>----|---------<o>
+Conection of an Etch to a Node
+
+
+
+
+
+
 Layers can not be handled by ObjectCare because..
 ..(structure: first, last, actual element ?)..
+
+
+Information Source
+------------------
+
+Neuroscience
+Clarke Neurology 2009
+
+Coding
+Richard Kaiser - C++ mit dem Borland C++ Builder
+Strager
