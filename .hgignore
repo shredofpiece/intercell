@@ -1,3 +1,6 @@
+.hgignore
+.gitignore
+.git
 build
 work
 run

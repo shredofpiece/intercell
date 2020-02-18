@@ -7,12 +7,12 @@
   ParseOpts(&argc,argv);
   }*/
 
-bool SubOptRequiredArgument(char option[], char* value)
+bool SubOptRequiredArgument(const char option[], char* value)
   {
   if(value==NULL)
     {
     cout << "Error: Missing value for suboption '" << option << "'." << endl << "Discarding suboption." << endl;
-    subopterr = true;
+    //subopterr = true;
     return false;
     }
   else
@@ -29,7 +29,7 @@ bool SubOptOptionalArgument(char* value)
     return true;
   }
 
-void SubOptNoArgument(char option[], char* value)
+void SubOptNoArgument(const char option[], char* value)
   {
   if(value==NULL)
     {
@@ -57,7 +57,8 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
     // additional variables for getsubopt
     char* subopts;                     
     char* value;
-    subopterr = false;  // fatal error -> discarding operation
+    subopterr = false;  // subopterr = false;  // fatal error -> discarding operation
+    debug_level = 1;  // DEFAULT DEBUG LEVEL
 
     opt = getopt_long (*argc, argv, "o:v::", long_options, &option_index);
 
@@ -83,6 +84,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           {
           QUIET_OPT = 0,  // =0 -> intern value for this name
           VARIABLES_OPT,
+          CREATIONS_OPT,
           STRUCTIONS_OPT,
           ADRESSES_OPT
           };
@@ -90,6 +92,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           {
           [QUIET_OPT]      = "quiet",
           [VARIABLES_OPT]  = "variables",
+          [CREATIONS_OPT]  = "creations",
           [STRUCTIONS_OPT] = "structions",
           [ADRESSES_OPT]   = "adresses",
           NULL
@@ -101,18 +104,27 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
             {
             case QUIET_OPT:
               SubOptNoArgument(token[QUIET_OPT],value);
+              debug_level = 0;
               break;
 
             case VARIABLES_OPT:
               SubOptNoArgument(token[VARIABLES_OPT],value);
+              debug_level = 1;
+              break;
+
+            case CREATIONS_OPT:
+              SubOptNoArgument(token[CREATIONS_OPT],value);
+              debug_level = 2;
               break;
 
             case STRUCTIONS_OPT:
               SubOptNoArgument(token[STRUCTIONS_OPT],value);
+              debug_level = 5;
               break;
 
             case ADRESSES_OPT:
               SubOptNoArgument(token[ADRESSES_OPT],value);
+              debug_level = 6;
               break;
 
             default:
@@ -221,9 +233,9 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
     cout << endl;
     }
 
-  if(subopterr)
-    return false;
-  else
+  //if(subopterr)
+  //  return false;
+  //else
     return true;
   }
 
