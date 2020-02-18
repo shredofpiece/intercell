@@ -3,7 +3,7 @@
 int main(int argc, char *const argv[])  // alternatives: char * argv[], char **argv, char * const* argv
   {
   //cmdargs(&argc,argv);
-  if(!ParseOpt(&argc,argv))
+  if(!ParseOpts(&argc,argv))
     return 1;
 
   // printing debug level, if there is one (+var casts to according int types. here for printing char as number)

@@ -76,6 +76,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
         break;
 
       case 'v':
+        {
         cout << "Option -v" << endl;
         // variables for getsubopt
         enum
@@ -99,31 +100,31 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           switch (getsubopt(&subopts, token, &value))
             {
             case QUIET_OPT:
-              SubOptNoArgument(token[NODE_OPT],&value))
+              SubOptNoArgument(token[QUIET_OPT],value);
               break;
 
             case VARIABLES_OPT:
+              SubOptNoArgument(token[VARIABLES_OPT],value);
               break;
 
             case STRUCTIONS_OPT:
+              SubOptNoArgument(token[STRUCTIONS_OPT],value);
               break;
 
             case ADRESSES_OPT:
+              SubOptNoArgument(token[ADRESSES_OPT],value);
               break;
 
             default:
-              cout << "No match found for token: " << value << endl);
+              cout << "No match found for token: " << value << endl;
               break;
             }
           }
-
-
-
-
-
         break;
+        }
 
       case 'o':
+        {
         cout << "Option -o with value " << optarg << endl;
         // variables for getsubopt
         enum
@@ -161,50 +162,51 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           switch (getsubopt(&subopts, token, &value))
             {
             case NET_OPT:
-              if(SubOptOptionalArgument(&value))
-                net = value;
+              if(SubOptOptionalArgument(value))
+                net = stoi(value);
               else
                 net = 1;
               break;
 
             case LAYER_OPT:
-              layer = value;
+              layer = stoi(value);
               break;
 
             case NODE_OPT:
-              if(SubOptRequiredArgument(token[NODE_OPT],&value))
-                node = value;
+              if(SubOptRequiredArgument(token[NODE_OPT],value))
+                node = stoi(value);
               break;
 
             case EDGE_OPT:
-              if(SubOptRequiredArgument(token[EDGE_OPT],&value))
-                edge = value;
+              if(SubOptRequiredArgument(token[EDGE_OPT],value))
+                edge = stoi(value);
               break;
 
             case WEIGHT_OPT:
-              if(SubOptRequiredArgument(token[WEIGHT_OPT],&value))
-                weight = value;
+              if(SubOptRequiredArgument(token[WEIGHT_OPT],value))
+                weight = stoi(value);
               break;
 
             case DELAY_OPT:
-              if(SubOptRequiredArgument(token[DELAY_OPT],&value))
-                delay = value;
+              if(SubOptRequiredArgument(token[DELAY_OPT],value))
+                delay = stoi(value);
               break;
 
             default:
-              cout << "No match found for token: " << value << endl);
+              cout << "No match found for token: " << value << endl;
               break;
             }
           }
         if(subopterr)
           cout << "Command discarded" << endl;
         break;
+        }
 
       case '?':
         break;  // ‘getopt_long’ already printed an error message
 
       default:
-        cout << "Discarding unfetched option: " << c << endl;
+        cout << "Discarding unfetched option: " << opt << endl;
         break;
       }
     }

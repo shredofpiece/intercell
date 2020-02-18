@@ -23,6 +23,8 @@ class CmdArg
 #include <iostream>  // cin, cout
 #include <getopt.h>  // getopt_long
 #include <cstdlib>   // getsubopt, exit
+#include "Datatype.h"
+using std::stoi;
 using std::cout;
 using std::endl;
 
@@ -30,9 +32,9 @@ bool subopterr;
 //char* optarg;
 //int optint, opterr, optopt;
 
-bool SubOptRequiredArgument(char option[], char* value);
-bool SubOptOptionalArgument(char* value);
-void SubOptNoArgument(char option[], char* value);
+bool SubOptRequiredArgument(char option[], char value[]);
+bool SubOptOptionalArgument(char value[]);
+void SubOptNoArgument(char option[], char value[]);
 
 bool ParseOpts(int* argc, char *const argv[]);
 
