@@ -86,7 +86,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           STRUCTIONS_OPT,
           ADRESSES_OPT
           };
-        char *const token[] =
+        const char * token[] =  // char *const token[] =
           {
           [QUIET_OPT]      = "quiet",
           [VARIABLES_OPT]  = "variables",
@@ -136,7 +136,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           WEIGHT_OPT,
           DELAY_OPT
           };
-        char *const token[] =
+        const char * token[] =  // char *const token[] =
           {
           [NET_OPT]   = "net",
           [LAYER_OPT]   = "layer",
