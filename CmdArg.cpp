@@ -97,7 +97,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
         subopts = optarg;
         while (*subopts != '\0')
           {
-          switch (getsubopt(&subopts, token, &value))
+          switch (getsubopt(&subopts, const_cast<char *const *>(token), &value))
             {
             case QUIET_OPT:
               SubOptNoArgument(token[QUIET_OPT],value);
@@ -159,7 +159,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
         subopts = optarg;
         while (*subopts != '\0' && !subopterr)
           {
-          switch (getsubopt(&subopts, token, &value))
+          switch (getsubopt(&subopts, const_cast<char *const *>(token), &value))
             {
             case NET_OPT:
               if(SubOptOptionalArgument(value))
