@@ -7,6 +7,9 @@ ptr_list
 
 D* -> D in objcare ?
 
+cnod -> cnde
+
+making list to own its elements like in ptr_list
 
 create receptorneuron
 unify edges

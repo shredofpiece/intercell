@@ -1,7 +1,7 @@
 #ifndef CmdArgH
 #define CmdArgH
 
-#include <iostream>             // cin, cout
+/*#include <iostream>             // cin, cout
 
 //#include <getopt>
 //#include "ParseOpt.h"
@@ -11,7 +11,7 @@ using std::endl;
 
 //void debug(char* argv);
 void cmdargs(int *argc, char * const argv[]);
-
+*/
 /*
 class CmdArg
   {
@@ -19,5 +19,21 @@ class CmdArg
   
   };
 */
+
+#include <iostream>  // cin, cout
+#include <getopt.h>  // getopt_long
+#include <cstdlib>   // getsubopt, exit
+using std::cout;
+using std::endl;
+
+bool subopterr;
+//char* optarg;
+//int optint, opterr, optopt;
+
+bool SubOptRequiredArgument(option[], char* value);
+bool SubOptOptionalArgument(char* value);
+void SubOptNoArgument(option[], char* value);
+bool ParseOpts(int* argc, char *const argv[]);
+
 
 #endif
