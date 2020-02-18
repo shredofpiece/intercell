@@ -7,7 +7,7 @@
   ParseOpts(&argc,argv);
   }*/
 
-bool SubOptRequiredArgument(option[], char* value)
+bool SubOptRequiredArgument(char option[], char* value)
   {
   if(value==NULL)
     {
@@ -29,7 +29,7 @@ bool SubOptOptionalArgument(char* value)
     return true;
   }
 
-void SubOptNoArgument(option[], char* value)
+void SubOptNoArgument(char option[], char* value)
   {
   if(value==NULL)
     {

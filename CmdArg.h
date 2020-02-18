@@ -30,10 +30,10 @@ bool subopterr;
 //char* optarg;
 //int optint, opterr, optopt;
 
-bool SubOptRequiredArgument(option[], char* value);
+bool SubOptRequiredArgument(char option[], char* value);
 bool SubOptOptionalArgument(char* value);
-void SubOptNoArgument(option[], char* value);
-bool ParseOpts(int* argc, char *const argv[]);
+void SubOptNoArgument(char option[], char* value);
 
+bool ParseOpts(int* argc, char *const argv[]);
 
 #endif
