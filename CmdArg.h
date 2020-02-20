@@ -29,7 +29,7 @@ using std::stoi;
 using std::cout;
 using std::endl;
 
-bool subopterr;
+extern bool subopterr;
 
 //char* optarg;
 //int optint, opterr, optopt;
