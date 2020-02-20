@@ -1,5 +1,7 @@
 #include "CmdArg.h"
 
+bool subopterr;
+
 //opterr=1;
 
 /*int main(int argc, char * const argv[])  // alternatives: char * argv[], char **argv, char * const* argv
