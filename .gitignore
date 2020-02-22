@@ -1,6 +1,7 @@
-.gitignore
-.hgignore
-.hg
+./.gitignore
+./.hgignore
+./.hg
 build
 work
 run
+sik

@@ -140,11 +140,23 @@ MotorNode::~MotorNode()
 
 // ============================================================================
 
-Layer::Layer(list<Node*>::iterator first, list<Node*>::iterator last):ilp_first(first), ilp_last(last)
+Layer::Layer()
+  {                                                                              if(debug_level>=5)  cout << "Layer::Layer()\tKonstruktor" << endl;
+  poplp_node = new ObjectCare<Node>;
+  }
+
+Layer::~Layer()
+  {                                                                              if(debug_level>=5)  cout << "Layer::~Layer()\tDestruktor" << endl;
+  delete poplp_node;
+  }
+
+// ============================================================================
+
+Span::Span(list<Node*>::iterator first, list<Node*>::iterator last):ilp_first(first), ilp_last(last)
   {
   }
 
-list<Node*>::iterator Layer::HaveNode(cnod count)  // count bezeichnet Nummer des Listenelements (1 >= count >= letztes Element)
+list<Node*>::iterator Span::HaveNode(cnde count)  // count bezeichnet Nummer des Listenelements (1 >= count >= letztes Element)
   {                                                                              if(debug_level>=2)  cout << "HaveNode(count: " << count << ")" << endl;
   ilp_node=ilp_first;  // Iterator initialisieren
   --count;
@@ -162,13 +174,15 @@ list<Node*>::iterator Layer::HaveNode(cnod count)  // count bezeichnet Nummer de
 Net::Net()
   {
   poplp_node = new ObjectCare<Node>;
-  plp_layer = new list<Layer*>;                                                  if(debug_level>=5)  cout << "Net::Net()\tKonstruktor" << endl;
+  poplp_layer = new ObjectCare<Layer>;
+  plp_span = new list<Span*>;                                                  if(debug_level>=5)  cout << "Net::Net()\tKonstruktor" << endl;
   }
 
 Net::~Net()
   {                                                                              if(debug_level>=5)  cout << "Net::~Net()\tDestruktor" << endl;
   delete poplp_node;
-  DeleteListAndTheirElements<Layer>(plp_layer, ilp_layer);
+  delete poplp_layer;
+  DeleteListAndTheirElements<Span>(plp_span, ilp_span);
   }
 
 // ============================================================================

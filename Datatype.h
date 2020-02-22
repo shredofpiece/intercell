@@ -19,10 +19,10 @@ using std::numeric_limits;
 typedef uint16_t usi;     // 2*8bit, unsigned short int
 typedef uint64_t uli;     // 8*8bit, Mengen (von Elementen), unsigned long long int
 
-// Mengen (von Elementen), amounts (quantities) of elements // cnet<=clay<=cnod<=cedg
+// Mengen (von Elementen), amounts (quantities) of elements // cnet<=clay<=cnde<=cedg
 typedef uint8_t cnet;  // count of nets
 typedef uint8_t clay;  // count of layers
-typedef uint64_t cnod; // count of nodes
+typedef uint64_t cnde; // count of nodes
 typedef uint64_t cedg; // count of edges
 typedef cedg cnoe;     // count of nodes or edges
 

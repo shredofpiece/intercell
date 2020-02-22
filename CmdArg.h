@@ -29,7 +29,7 @@ using std::stoi;
 using std::cout;
 using std::endl;
 
-bool subopterr;
+extern bool subopterr;  // thx strager for hint to forgotten extern. without: multible defs
 
 //char* optarg;
 //int optint, opterr, optopt;

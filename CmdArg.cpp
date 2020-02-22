@@ -7,12 +7,14 @@
   ParseOpts(&argc,argv);
   }*/
 
+bool subopterr;
+
 bool SubOptRequiredArgument(const char option[], char* value)
   {
   if(value==NULL)
     {
     cout << "Error: Missing value for suboption '" << option << "'." << endl << "Discarding suboption." << endl;
-    //subopterr = true;
+    subopterr = true;
     return false;
     }
   else
@@ -88,7 +90,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           STRUCTIONS_OPT,
           ADRESSES_OPT
           };
-        const char * token[] =  // char *const token[] =
+        /*const char * token[] =  // char *const token[] =
           {
           [QUIET_OPT]      = "quiet",
           [VARIABLES_OPT]  = "variables",
@@ -96,11 +98,25 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           [STRUCTIONS_OPT] = "structions",
           [ADRESSES_OPT]   = "adresses",
           NULL
+          };*/
+        char tok_quiet[] = "quiet";
+        char tok_variables[] = "variables";
+        char tok_creations[] = "creations";
+        char tok_structions[] = "structions";
+        char tok_adresses[] = "adresses";
+        char *const token[] =
+          {
+          tok_quiet,
+          tok_variables,
+          tok_creations,
+          tok_structions,
+          tok_adresses,
+          NULL
           };
         subopts = optarg;
         while (*subopts != '\0')
           {
-          switch (getsubopt(&subopts, const_cast<char *const *>(token), &value))
+          switch (getsubopt(&subopts, token, &value))  // const_cast<char *const *>(token)
             {
             case QUIET_OPT:
               SubOptNoArgument(token[QUIET_OPT],value);
@@ -161,7 +177,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
 
         cnet net = 0;
         clay layer = 0;
-        cnod node = 0;
+        cnde node = 0;
         cedg edge = 0;
 
         wgt weight = 0.0f;
@@ -233,9 +249,9 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
     cout << endl;
     }
 
-  //if(subopterr)
-  //  return false;
-  //else
+  if(subopterr)
+    return false;
+  else
     return true;
   }
 

@@ -63,6 +63,10 @@ class Edge  // Synaptic gap, synapses (weight), axon, dentride
   virtual ~Edge()=0;  // =0: pure: Kein eigenständiges Objekt
   wgt GetWeight() const;
   dey GetDelay() const;
+  // inhibiting tendency (max inhibiting)
+  // inhibiting speed
+  // recovery speed // expo curve
+  //path
   };
 
 class NodeEdge_Edge : public Edge  // Axo-axonic synapse
@@ -179,14 +183,29 @@ class MotorNode : public Node, public InnerNode
 
 class Layer
   {
+  ObjectCare<Node>* poplp_node;  // poplp(m)=poiter to object containing pointer to list containing pointers (member variable (implyed))
+ public:
+  Layer();
+  ~Layer();
+  template <typename D>                    // Wenn HaveNet=Net Ausdruckssyntaxfehler bei plp_net = new list<Net*>;
+  list<Node*>::iterator HaveNode(cnde count)  // Wenn typename D in Funktionsparametern: [C++ Fehler] EDataStructure.cpp(165): E2439 'typename' ist nur in Template-Deklarationen zulässig
+    {
+    return poplp_node->HaveElement<D>(count);
+    }
+  };
+
+// ----------------------------------------------------------------------------
+
+class Span
+  {
   list<Node*>::iterator ilp_first;
   list<Node*>::iterator ilp_node;
   list<Node*>::iterator ilp_last;
  public:
-  //Layer();
-  Layer(list<Node*>::iterator first, list<Node*>::iterator last);
+  //Span();
+  Span(list<Node*>::iterator first, list<Node*>::iterator last);
   //list<Node*>::iterator GetStart() const;
-  list<Node*>::iterator HaveNode(cnod count);
+  list<Node*>::iterator HaveNode(cnde count);
   //list<Node*>::iterator GetEnd() const;
   //list<Node*>::iterator SetStart(list<Node*>::iterator first);
   //list<Node*>::iterator SetEnd(list<Node*>::iterator last);
@@ -197,21 +216,27 @@ class Layer
 class Net
   {
   ObjectCare<Node>* poplp_node;
-  list<Layer*>* plp_layer;
-  list<Layer*>::iterator ilp_layer;
+  ObjectCare<Layer>* poplp_layer;
+  list<Span*>* plp_span;
+  list<Span*>::iterator ilp_span;
  public:
   Net();
   ~Net();
   template <typename D>
-  list<Node*>::iterator HaveNode(cnod count)
+  list<Node*>::iterator HaveNode(cnde count)
     {
     return poplp_node->HaveElement<D>(count);
     }
   template <typename D>
-  void DefineLayer(cnod first, cnod last)  // Erstes vor dem letzten Element oder gleich (first<=last)
-    {                                                                              if(debug_level>=1)  cout << "Net::DefineLayer(first: " << first << ", last: " << last << ")" << endl;
-    plp_layer->push_back(new Layer(HaveNode<D>(first),HaveNode<D>(last)));  // boost ptr_list not having push_back  // Mit ptr_list error: no matching function for call to 'boost::ptr_list<Layer*>::push_back(Layer*&)'
-    //plp_layer->push_back(new Layer(HaveElement<D>(first),HaveElement<D>(last)));  // boost ptr_list not having push_back  // Mit ptr_list error: no matching function for call to 'boost::ptr_list<Layer*>::push_back(Layer*&)'
+  list<Layer*>::iterator HaveLayer(clay count)
+    {
+    return poplp_layer->HaveElement<D>(count);
+    }
+  template <typename D>
+  void DefineSpan(cnde first, cnde last)  // Erstes vor dem letzten Element oder gleich (first<=last)
+    {                                                                              if(debug_level>=1)  cout << "Net::DefineSpan(first: " << first << ", last: " << last << ")" << endl;
+    plp_span->push_back(new Span(HaveNode<D>(first),HaveNode<D>(last)));  // boost ptr_list not having push_back  // Mit ptr_list error: no matching function for call to 'boost::ptr_list<Span*>::push_back(Span*&)'
+    //plp_span->push_back(new Span(HaveElement<D>(first),HaveElement<D>(last)));  // boost ptr_list not having push_back  // Mit ptr_list error: no matching function for call to 'boost::ptr_list<Span*>::push_back(Span*&)'
     }
   };
 

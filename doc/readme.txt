@@ -32,11 +32,17 @@ SetX---NetX---NodeX------Edge---------
                |            |
          PyramidalNode      |O-----NodeNode_Edge
 
+X -> aggregation(?) (resembles filled arrowtiptriangle)
+O -> komposition(?) (resembles blank arrowtiptriangle)
+
 Classes without relationships:
 ObjectCare, DeleteListAndTheirElements
 
-X -> aggregation(?) (resembles filled arrowtiptriangle)
-O -> komposition(?) (resembles blank arrowtiptriangle)
+ObjectCare wraps Elements, which are
+composed of one list and one iterator.
+
+DeleteListAndTheirElements wraps the freeing of memory
+which ist allocated by elements (pointers) in it.
 
 
 File structure
