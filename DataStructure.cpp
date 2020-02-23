@@ -64,7 +64,7 @@ void Node::SetVoltage(vtg voltage)
 
 InputNode::InputNode()  // Sensory neuron
   {                                                                              if(debug_level>=5)  cout << "InputNode::InputNode()\tKonstruktor" << endl;
-  poplp_destedge = new ObjectCare<Edge>;
+  poplp_destedge = new ObjectCare<Edge*>;
   }
 
 InputNode::~InputNode()
@@ -76,7 +76,7 @@ InputNode::~InputNode()
 
 OutputNode::OutputNode()  // Motor neuron, Secretatory neuron
   {                                                                              if(debug_level>=5)  cout << "OutputNode::OutputNode()\tKonstruktor" << endl;
-  poplp_sourceedge = new ObjectCare<Edge>;
+  poplp_sourceedge = new ObjectCare<Edge*>;
   }
 
 OutputNode::~OutputNode()
@@ -142,7 +142,7 @@ MotorNode::~MotorNode()
 
 Layer::Layer()
   {                                                                              if(debug_level>=5)  cout << "Layer::Layer()\tKonstruktor" << endl;
-  poplp_node = new ObjectCare<Node>;
+  poplp_node = new ObjectCare<Node*>;
   }
 
 Layer::~Layer()
@@ -173,8 +173,8 @@ list<Node*>::iterator Span::HaveNode(cnde count)  // count bezeichnet Nummer des
 
 Net::Net()
   {
-  poplp_node = new ObjectCare<Node>;
-  poplp_layer = new ObjectCare<Layer>;
+  poplp_node = new ObjectCare<Node*>;
+  poplp_layer = new ObjectCare<Layer*>;
   plp_span = new list<Span*>;                                                  if(debug_level>=5)  cout << "Net::Net()\tKonstruktor" << endl;
   }
 
@@ -182,14 +182,14 @@ Net::~Net()
   {                                                                              if(debug_level>=5)  cout << "Net::~Net()\tDestruktor" << endl;
   delete poplp_node;
   delete poplp_layer;
-  DeleteListAndTheirElements<Span>(plp_span, ilp_span);
+  DeleteListAndTheirElements<Span*>(plp_span, ilp_span);
   }
 
 // ============================================================================
 
 Set::Set()
   {                                                                              if(debug_level>=5)  cout << "Set::Set()\tKonstruktor" << endl;
-  poplp_net = new ObjectCare<Net>;
+  poplp_net = new ObjectCare<Net*>;
   }
 
 Set::~Set()

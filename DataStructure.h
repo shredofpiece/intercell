@@ -20,12 +20,12 @@ using std::endl;
 template <typename B>  // B=Basis(klasse), D=Data, C=Count
 class ObjectCare       // ListAndIteratorObjectCare
   {
-  list<B*>* plp;
-  typename list<B*>::iterator ilp;
+  list<B>* plp;
+  typename list<B>::iterator ilp;
  public:
   ObjectCare()
     {                                                                            if(debug_level>=5)  cout << "ObjectCare::ObjectCare()\tKonstruktor" << endl;
-    plp = new list<B*>;
+    plp = new list<B>;
     }
   ~ObjectCare()
     {                                                                            if(debug_level>=5)  cout << "ObjectCare::~ObjectCare()\tDestruktor" << endl;
@@ -34,10 +34,10 @@ class ObjectCare       // ListAndIteratorObjectCare
   template <typename D/*, typename... Args*/>  // D=Data (Type of pointer in list), C=count
   void AddElement(/*Args... args*/)
     {
-    plp->push_back(new D/*(args...)*/);                                                       // [C++ Warnung] EDataStructure.h(20): W8030 Temporäre Größe für Parameter '__x' in Aufruf von 'list<Node *,allocator<Node *> >::push_back(Node * const &)' verwendet
+    plp->push_back(new D/*(args...)*/);  // bug cause pushing back an element instead of a pointer to it by mistake ? no cause class itself is a pointer ?  // [C++ Warnung] EDataStructure.h(20): W8030 Temporäre Größe für Parameter '__x' in Aufruf von 'list<Node *,allocator<Node *> >::push_back(Node * const &)' verwendet
     }
   template <typename D, typename C/*, typename... Args*/>  // D=Data (Type of pointer in list), C=count,  // A=Arguments (for Constructor)
-  typename list<B*>::iterator HaveElement(C count/*, Args... args*/)
+  typename list<B>::iterator HaveElement(C count/*, Args... args*/)
     {                                                                            if(debug_level>=1)  cout << "ObjC::HavEl(" << +count << ". Typ: " << typeid(D).name() << ")" << endl << "ObjC::HavEl(" << +count << ". Typ: " << typeid(D).name() << ")\tAnfangsobjektanzahl: " << plp->size() << endl;
     while(plp->size()<count)  // Solange Basisgröße kleiner Auswahl              // Wenn Mehrfachvererbung und zusammenführung InnerNode->InputNode, OutputNode->Node anscheinend keine Typkompatibilität von InnerNode zur Liste mit Zeigern auf die Basisklasse Node:
       AddElement<D/*,Args...*/>(/*args...*/);        // Füge Element hinzu
@@ -118,7 +118,7 @@ class Node  // Neuron: soma
 class InputNode
   {
  protected:
-  ObjectCare<Edge>* poplp_destedge;
+  ObjectCare<Edge*>* poplp_destedge;
  public:
   InputNode();
   virtual ~InputNode()=0;  // =0: pure: Kein eigenständiges Objekt
@@ -132,7 +132,7 @@ class InputNode
 class OutputNode
   {
  protected:
-  ObjectCare<Edge>* poplp_sourceedge;
+  ObjectCare<Edge*>* poplp_sourceedge;
  public:
   OutputNode();
   virtual ~OutputNode()=0;  // =0: pure: Kein eigenständiges Objekt
@@ -183,7 +183,7 @@ class MotorNode : public Node, public InnerNode
 
 class Layer
   {
-  ObjectCare<Node>* poplp_node;  // poplp(m)=poiter to object containing pointer to list containing pointers (member variable (implyed))
+  ObjectCare<Node*>* poplp_node;  // poplp(m)=poiter to object containing pointer to list containing pointers (member variable (implyed))
  public:
   Layer();
   ~Layer();
@@ -215,8 +215,8 @@ class Span
 
 class Net
   {
-  ObjectCare<Node>* poplp_node;
-  ObjectCare<Layer>* poplp_layer;
+  ObjectCare<Node*>* poplp_node;
+  ObjectCare<Layer*>* poplp_layer;
   list<Span*>* plp_span;
   list<Span*>::iterator ilp_span;
  public:
@@ -244,7 +244,7 @@ class Net
 
 class Set
   {
-  ObjectCare<Net>* poplp_net;  // poplp(m)=poiter to object containing pointer to list containing pointers (member variable (implyed))
+  ObjectCare<Net*>* poplp_net;  // poplp(m)=poiter to object containing pointer to list containing pointers (member variable (implyed))
  public:
   Set();
   ~Set();

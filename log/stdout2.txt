@@ -1,0 +1,548 @@
+Debug-Level: 9
+
+Netzstruktur aufbauen
+
+Set::Set()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 0
+ObjectCare::ObjectCare()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+Net::Net()	Konstruktor
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(2. Typ: 12ReceptorNode)
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Anfangsobjektanzahl: 0
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ReceptorNode::ReceptorNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ReceptorNode::ReceptorNode()	Konstruktor
+ObjC::HavEl(2. Typ: 12ReceptorNode)	ilp = plp->begin(): 0x562d5a1fbd80
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Endobjektanzahl: 2
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Adr. 1.	Objekt: 0x562d5a1fbd80
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Adr. 2.	Objekt: 0x562d5a1fbe30 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(5. Typ: 13PyramidalNode)
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Anfangsobjektanzahl: 2
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+InnerNode::InnerNode()	Konstruktor
+PyramidalNode::PyramidalNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+InnerNode::InnerNode()	Konstruktor
+PyramidalNode::PyramidalNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+InnerNode::InnerNode()	Konstruktor
+PyramidalNode::PyramidalNode()	Konstruktor
+ObjC::HavEl(5. Typ: 13PyramidalNode)	ilp = plp->begin(): 0x562d5a1fbd80
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Endobjektanzahl: 5
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Adr. 1.	Objekt: 0x562d5a1fbd80
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Adr. 5.	Objekt: 0x562d5a1fc0e0 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(7. Typ: 9ActorNode)
+ObjC::HavEl(7. Typ: 9ActorNode)	Anfangsobjektanzahl: 5
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ActorNode::ActorNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ActorNode::ActorNode()	Konstruktor
+ObjC::HavEl(7. Typ: 9ActorNode)	ilp = plp->begin(): 0x562d5a1fbd80
+ObjC::HavEl(7. Typ: 9ActorNode)	Endobjektanzahl: 7
+ObjC::HavEl(7. Typ: 9ActorNode)	Adr. 1.	Objekt: 0x562d5a1fbd80
+ObjC::HavEl(7. Typ: 9ActorNode)	Adr. 7.	Objekt: 0x562d5a1fc290 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+Net::DefineSpan(first: 1, last: 2)
+ObjC::HavEl(1. Typ: 12ReceptorNode)
+ObjC::HavEl(1. Typ: 12ReceptorNode)	Anfangsobjektanzahl: 7
+ObjC::HavEl(1. Typ: 12ReceptorNode)	ilp = plp->begin(): 0x562d5a1fbd80
+ObjC::HavEl(1. Typ: 12ReceptorNode)	Endobjektanzahl: 7
+ObjC::HavEl(1. Typ: 12ReceptorNode)	Adr. 1.	Objekt: 0x562d5a1fbd80
+ObjC::HavEl(1. Typ: 12ReceptorNode)	Adr. 1.	Objekt: 0x562d5a1fbd80 (Rueckgabe)
+ObjC::HavEl(2. Typ: 12ReceptorNode)
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Anfangsobjektanzahl: 7
+ObjC::HavEl(2. Typ: 12ReceptorNode)	ilp = plp->begin(): 0x562d5a1fbd80
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Endobjektanzahl: 7
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Adr. 1.	Objekt: 0x562d5a1fbd80
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Adr. 2.	Objekt: 0x562d5a1fbe30 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+Net::DefineSpan(first: 3, last: 5)
+ObjC::HavEl(3. Typ: 13PyramidalNode)
+ObjC::HavEl(3. Typ: 13PyramidalNode)	Anfangsobjektanzahl: 7
+ObjC::HavEl(3. Typ: 13PyramidalNode)	ilp = plp->begin(): 0x562d5a1fbd80
+ObjC::HavEl(3. Typ: 13PyramidalNode)	Endobjektanzahl: 7
+ObjC::HavEl(3. Typ: 13PyramidalNode)	Adr. 1.	Objekt: 0x562d5a1fbd80
+ObjC::HavEl(3. Typ: 13PyramidalNode)	Adr. 3.	Objekt: 0x562d5a1fbee0 (Rueckgabe)
+ObjC::HavEl(5. Typ: 13PyramidalNode)
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Anfangsobjektanzahl: 7
+ObjC::HavEl(5. Typ: 13PyramidalNode)	ilp = plp->begin(): 0x562d5a1fbd80
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Endobjektanzahl: 7
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Adr. 1.	Objekt: 0x562d5a1fbd80
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Adr. 5.	Objekt: 0x562d5a1fc0e0 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+Net::DefineSpan(first: 6, last: 7)
+ObjC::HavEl(6. Typ: 9ActorNode)
+ObjC::HavEl(6. Typ: 9ActorNode)	Anfangsobjektanzahl: 7
+ObjC::HavEl(6. Typ: 9ActorNode)	ilp = plp->begin(): 0x562d5a1fbd80
+ObjC::HavEl(6. Typ: 9ActorNode)	Endobjektanzahl: 7
+ObjC::HavEl(6. Typ: 9ActorNode)	Adr. 1.	Objekt: 0x562d5a1fbd80
+ObjC::HavEl(6. Typ: 9ActorNode)	Adr. 6.	Objekt: 0x562d5a1fc1e0 (Rueckgabe)
+ObjC::HavEl(7. Typ: 9ActorNode)
+ObjC::HavEl(7. Typ: 9ActorNode)	Anfangsobjektanzahl: 7
+ObjC::HavEl(7. Typ: 9ActorNode)	ilp = plp->begin(): 0x562d5a1fbd80
+ObjC::HavEl(7. Typ: 9ActorNode)	Endobjektanzahl: 7
+ObjC::HavEl(7. Typ: 9ActorNode)	Adr. 1.	Objekt: 0x562d5a1fbd80
+ObjC::HavEl(7. Typ: 9ActorNode)	Adr. 7.	Objekt: 0x562d5a1fc290 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(1. Typ: 5Layer)
+ObjC::HavEl(1. Typ: 5Layer)	Anfangsobjektanzahl: 0
+Layer::Layer()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ObjC::HavEl(1. Typ: 5Layer)	ilp = plp->begin(): 0x562d5a1fc400
+ObjC::HavEl(1. Typ: 5Layer)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 5Layer)	Adr. 1.	Objekt: 0x562d5a1fc400
+ObjC::HavEl(1. Typ: 5Layer)	Adr. 1.	Objekt: 0x562d5a1fc400 (Rueckgabe)
+ObjC::HavEl(1. Typ: 12ReceptorNode)
+ObjC::HavEl(1. Typ: 12ReceptorNode)	Anfangsobjektanzahl: 0
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ReceptorNode::ReceptorNode()	Konstruktor
+ObjC::HavEl(1. Typ: 12ReceptorNode)	ilp = plp->begin(): 0x562d5a1fc480
+ObjC::HavEl(1. Typ: 12ReceptorNode)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 12ReceptorNode)	Adr. 1.	Objekt: 0x562d5a1fc480
+ObjC::HavEl(1. Typ: 12ReceptorNode)	Adr. 1.	Objekt: 0x562d5a1fc480 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(1. Typ: 5Layer)
+ObjC::HavEl(1. Typ: 5Layer)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 5Layer)	ilp = plp->begin(): 0x562d5a1fc400
+ObjC::HavEl(1. Typ: 5Layer)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 5Layer)	Adr. 1.	Objekt: 0x562d5a1fc400
+ObjC::HavEl(1. Typ: 5Layer)	Adr. 1.	Objekt: 0x562d5a1fc400 (Rueckgabe)
+ObjC::HavEl(2. Typ: 12ReceptorNode)
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Anfangsobjektanzahl: 1
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ReceptorNode::ReceptorNode()	Konstruktor
+ObjC::HavEl(2. Typ: 12ReceptorNode)	ilp = plp->begin(): 0x562d5a1fc480
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Endobjektanzahl: 2
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Adr. 1.	Objekt: 0x562d5a1fc480
+ObjC::HavEl(2. Typ: 12ReceptorNode)	Adr. 2.	Objekt: 0x562d5a1fc530 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(2. Typ: 5Layer)
+ObjC::HavEl(2. Typ: 5Layer)	Anfangsobjektanzahl: 1
+Layer::Layer()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ObjC::HavEl(2. Typ: 5Layer)	ilp = plp->begin(): 0x562d5a1fc400
+ObjC::HavEl(2. Typ: 5Layer)	Endobjektanzahl: 2
+ObjC::HavEl(2. Typ: 5Layer)	Adr. 1.	Objekt: 0x562d5a1fc400
+ObjC::HavEl(2. Typ: 5Layer)	Adr. 2.	Objekt: 0x562d5a1fc5e0 (Rueckgabe)
+ObjC::HavEl(3. Typ: 13PyramidalNode)
+ObjC::HavEl(3. Typ: 13PyramidalNode)	Anfangsobjektanzahl: 0
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+InnerNode::InnerNode()	Konstruktor
+PyramidalNode::PyramidalNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+InnerNode::InnerNode()	Konstruktor
+PyramidalNode::PyramidalNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+InnerNode::InnerNode()	Konstruktor
+PyramidalNode::PyramidalNode()	Konstruktor
+ObjC::HavEl(3. Typ: 13PyramidalNode)	ilp = plp->begin(): 0x562d5a1fc660
+ObjC::HavEl(3. Typ: 13PyramidalNode)	Endobjektanzahl: 3
+ObjC::HavEl(3. Typ: 13PyramidalNode)	Adr. 1.	Objekt: 0x562d5a1fc660
+ObjC::HavEl(3. Typ: 13PyramidalNode)	Adr. 3.	Objekt: 0x562d5a1fc860 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(2. Typ: 5Layer)
+ObjC::HavEl(2. Typ: 5Layer)	Anfangsobjektanzahl: 2
+ObjC::HavEl(2. Typ: 5Layer)	ilp = plp->begin(): 0x562d5a1fc400
+ObjC::HavEl(2. Typ: 5Layer)	Endobjektanzahl: 2
+ObjC::HavEl(2. Typ: 5Layer)	Adr. 1.	Objekt: 0x562d5a1fc400
+ObjC::HavEl(2. Typ: 5Layer)	Adr. 2.	Objekt: 0x562d5a1fc5e0 (Rueckgabe)
+ObjC::HavEl(4. Typ: 13PyramidalNode)
+ObjC::HavEl(4. Typ: 13PyramidalNode)	Anfangsobjektanzahl: 3
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+InnerNode::InnerNode()	Konstruktor
+PyramidalNode::PyramidalNode()	Konstruktor
+ObjC::HavEl(4. Typ: 13PyramidalNode)	ilp = plp->begin(): 0x562d5a1fc660
+ObjC::HavEl(4. Typ: 13PyramidalNode)	Endobjektanzahl: 4
+ObjC::HavEl(4. Typ: 13PyramidalNode)	Adr. 1.	Objekt: 0x562d5a1fc660
+ObjC::HavEl(4. Typ: 13PyramidalNode)	Adr. 4.	Objekt: 0x562d5a1fc960 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(2. Typ: 5Layer)
+ObjC::HavEl(2. Typ: 5Layer)	Anfangsobjektanzahl: 2
+ObjC::HavEl(2. Typ: 5Layer)	ilp = plp->begin(): 0x562d5a1fc400
+ObjC::HavEl(2. Typ: 5Layer)	Endobjektanzahl: 2
+ObjC::HavEl(2. Typ: 5Layer)	Adr. 1.	Objekt: 0x562d5a1fc400
+ObjC::HavEl(2. Typ: 5Layer)	Adr. 2.	Objekt: 0x562d5a1fc5e0 (Rueckgabe)
+ObjC::HavEl(5. Typ: 13PyramidalNode)
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Anfangsobjektanzahl: 4
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+InputNode::InputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+InnerNode::InnerNode()	Konstruktor
+PyramidalNode::PyramidalNode()	Konstruktor
+ObjC::HavEl(5. Typ: 13PyramidalNode)	ilp = plp->begin(): 0x562d5a1fc660
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Endobjektanzahl: 5
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Adr. 1.	Objekt: 0x562d5a1fc660
+ObjC::HavEl(5. Typ: 13PyramidalNode)	Adr. 5.	Objekt: 0x562d5a1fca60 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(3. Typ: 5Layer)
+ObjC::HavEl(3. Typ: 5Layer)	Anfangsobjektanzahl: 2
+Layer::Layer()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ObjC::HavEl(3. Typ: 5Layer)	ilp = plp->begin(): 0x562d5a1fc400
+ObjC::HavEl(3. Typ: 5Layer)	Endobjektanzahl: 3
+ObjC::HavEl(3. Typ: 5Layer)	Adr. 1.	Objekt: 0x562d5a1fc400
+ObjC::HavEl(3. Typ: 5Layer)	Adr. 3.	Objekt: 0x562d5a1fcb60 (Rueckgabe)
+ObjC::HavEl(6. Typ: 9ActorNode)
+ObjC::HavEl(6. Typ: 9ActorNode)	Anfangsobjektanzahl: 0
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ActorNode::ActorNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ActorNode::ActorNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ActorNode::ActorNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ActorNode::ActorNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ActorNode::ActorNode()	Konstruktor
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ActorNode::ActorNode()	Konstruktor
+ObjC::HavEl(6. Typ: 9ActorNode)	ilp = plp->begin(): 0x562d5a1fcbe0
+ObjC::HavEl(6. Typ: 9ActorNode)	Endobjektanzahl: 6
+ObjC::HavEl(6. Typ: 9ActorNode)	Adr. 1.	Objekt: 0x562d5a1fcbe0
+ObjC::HavEl(6. Typ: 9ActorNode)	Adr. 6.	Objekt: 0x562d5a1fcf50 (Rueckgabe)
+ObjC::HavEl(1. Typ: 3Net)
+ObjC::HavEl(1. Typ: 3Net)	Anfangsobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	ilp = plp->begin(): 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Endobjektanzahl: 1
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90
+ObjC::HavEl(1. Typ: 3Net)	Adr. 1.	Objekt: 0x562d5a1fbc90 (Rueckgabe)
+ObjC::HavEl(3. Typ: 5Layer)
+ObjC::HavEl(3. Typ: 5Layer)	Anfangsobjektanzahl: 3
+ObjC::HavEl(3. Typ: 5Layer)	ilp = plp->begin(): 0x562d5a1fc400
+ObjC::HavEl(3. Typ: 5Layer)	Endobjektanzahl: 3
+ObjC::HavEl(3. Typ: 5Layer)	Adr. 1.	Objekt: 0x562d5a1fc400
+ObjC::HavEl(3. Typ: 5Layer)	Adr. 3.	Objekt: 0x562d5a1fcb60 (Rueckgabe)
+ObjC::HavEl(7. Typ: 9ActorNode)
+ObjC::HavEl(7. Typ: 9ActorNode)	Anfangsobjektanzahl: 6
+Node::SetVoltage(voltage: -0.07)
+Node::Node()	Konstruktor
+OutputNode::OutputNode()	Konstruktor
+ObjectCare::ObjectCare()	Konstruktor
+ActorNode::ActorNode()	Konstruktor
+ObjC::HavEl(7. Typ: 9ActorNode)	ilp = plp->begin(): 0x562d5a1fcbe0
+ObjC::HavEl(7. Typ: 9ActorNode)	Endobjektanzahl: 7
+ObjC::HavEl(7. Typ: 9ActorNode)	Adr. 1.	Objekt: 0x562d5a1fcbe0
+ObjC::HavEl(7. Typ: 9ActorNode)	Adr. 7.	Objekt: 0x562d5a1fd000 (Rueckgabe)
+
+Netzstruktur aufgebautNetzstruktur abbauen
+Set::~Set()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P3Net*>* l: 0x562d5a1fbc70, list<P3Net*>::iterator i)	size 1
+DelLstEl(l,i)	delete 0x562d5a1fbc90
+Net::~Net()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Node*>* l: 0x562d5a1fbce0, list<P4Node*>::iterator i)	size 7
+DelLstEl(l,i)	delete 0x562d5a1fc290
+ActorNode::~ActorNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc300, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fc1e0
+ActorNode::~ActorNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc250, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fc0e0
+PyramidalNode::~PyramidalNode()	Destruktor
+InnerNode::~InnerNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc1a0, list<P4Edge*>::iterator i)	size 0
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc160, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fbfe0
+PyramidalNode::~PyramidalNode()	Destruktor
+InnerNode::~InnerNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc0a0, list<P4Edge*>::iterator i)	size 0
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc060, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fbee0
+PyramidalNode::~PyramidalNode()	Destruktor
+InnerNode::~InnerNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fbfa0, list<P4Edge*>::iterator i)	size 0
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fbf60, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fbe30
+ReceptorNode::~ReceptorNode()	Destruktor
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fbea0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fbd80
+ReceptorNode::~ReceptorNode()	Destruktor
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fbdf0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P5Layer*>* l: 0x562d5a1fbd20, list<P5Layer*>::iterator i)	size 3
+DelLstEl(l,i)	delete 0x562d5a1fcb60
+Layer::~Layer()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Node*>* l: 0x562d5a1fcba0, list<P4Node*>::iterator i)	size 7
+DelLstEl(l,i)	delete 0x562d5a1fd000
+ActorNode::~ActorNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fd070, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fcf50
+ActorNode::~ActorNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fcfc0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fcea0
+ActorNode::~ActorNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fcf10, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fcdf0
+ActorNode::~ActorNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fce60, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fcd40
+ActorNode::~ActorNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fcdb0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fcc90
+ActorNode::~ActorNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fcd00, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fcbe0
+ActorNode::~ActorNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fcc50, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fc5e0
+Layer::~Layer()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Node*>* l: 0x562d5a1fc620, list<P4Node*>::iterator i)	size 5
+DelLstEl(l,i)	delete 0x562d5a1fca60
+PyramidalNode::~PyramidalNode()	Destruktor
+InnerNode::~InnerNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fcb20, list<P4Edge*>::iterator i)	size 0
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fcae0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fc960
+PyramidalNode::~PyramidalNode()	Destruktor
+InnerNode::~InnerNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fca20, list<P4Edge*>::iterator i)	size 0
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc9e0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fc860
+PyramidalNode::~PyramidalNode()	Destruktor
+InnerNode::~InnerNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc920, list<P4Edge*>::iterator i)	size 0
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc8e0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fc760
+PyramidalNode::~PyramidalNode()	Destruktor
+InnerNode::~InnerNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc820, list<P4Edge*>::iterator i)	size 0
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc7e0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fc660
+PyramidalNode::~PyramidalNode()	Destruktor
+InnerNode::~InnerNode()	Destruktor
+OutputNode::~OutputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc720, list<P4Edge*>::iterator i)	size 0
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc6e0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fc400
+Layer::~Layer()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Node*>* l: 0x562d5a1fc440, list<P4Node*>::iterator i)	size 2
+DelLstEl(l,i)	delete 0x562d5a1fc530
+ReceptorNode::~ReceptorNode()	Destruktor
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc5a0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(l,i)	delete 0x562d5a1fc480
+ReceptorNode::~ReceptorNode()	Destruktor
+InputNode::~InputNode()	Destruktor
+ObjectCare::~ObjectCare()	Destruktor
+DelLstEl(list<P4Edge*>* l: 0x562d5a1fc4f0, list<P4Edge*>::iterator i)	size 0
+Node::~Node()	Destruktor
+DelLstEl(list<P4Span*>* l: 0x562d5a1fbd40, list<P4Span*>::iterator i)	size 3
+DelLstEl(l,i)	delete 0x562d5a1fc3c0
+DelLstEl(l,i)	delete 0x562d5a1fc380
+DelLstEl(l,i)	delete 0x562d5a1fc340

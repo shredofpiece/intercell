@@ -7,28 +7,30 @@ int main(int argc, char *const argv[])  // alternatives: char * argv[], char **a
     return 1;
 
   // printing debug level, if there is one (+var casts to according int types. here for printing char as number)
-  if(debug_level>=1)  cout << "Debug-Level: " << +debug_level << endl << endl << "Netzstruktur aufbauen" << endl << endl;
-
+  if(debug_level>=1)  cout << "Debug-Level: " << +debug_level << endl << "Netzstruktur aufbauen" << endl << endl;
+                                                                                 if(debug_level>=1)  cout << "Adding Set:" << endl << "Set* p_set = new Set;" << endl;
   Set* p_set = new Set;  // Add set
   // Example network:  Input:      Hidden:      Output:
   //                    (1)          (3)                 // Other example: 64+45+45+27=181
   //                    (2)          (4)          (6)
   //                                 (5)          (7)
-  (*(p_set->HaveNet<Net>(1)))->HaveNode<ReceptorNode>(2);
-  (*(p_set->HaveNet<Net>(1)))->HaveNode<PyramidalNode>(5);
+                                                                                 if(debug_level>=1)  cout << endl << "Adding neurons:" << endl << "(*(p_set->HaveNet<Net>(1)))->HaveNode<ReceptorNode>(2);" << endl;
+  (*(p_set->HaveNet<Net>(1)))->HaveNode<ReceptorNode>(2);                        if(debug_level>=1)  cout << endl << "(*(p_set->HaveNet<Net>(1)))->HaveNode<PyramidalNode>(5);" << endl;
+  (*(p_set->HaveNet<Net>(1)))->HaveNode<PyramidalNode>(5);                       if(debug_level>=1)  cout << endl << "(*(p_set->HaveNet<Net>(1)))->HaveNode<ActorNode>(7);" << endl;
   (*(p_set->HaveNet<Net>(1)))->HaveNode<ActorNode>(7);
 
   // Schichten:
-  (*(p_set->HaveNet<Net>(1)))->DefineSpan<ReceptorNode>(1,2);
-  (*(p_set->HaveNet<Net>(1)))->DefineSpan<PyramidalNode>(3,5);
+                                                                                 if(debug_level>=1)  cout << endl << "Adding Span:" << endl << "(*(p_set->HaveNet<Net>(1)))->DefineSpan<ReceptorNode>(1,2);" << endl;
+  (*(p_set->HaveNet<Net>(1)))->DefineSpan<ReceptorNode>(1,2);                    if(debug_level>=1)  cout << endl << "(*(p_set->HaveNet<Net>(1)))->DefineSpan<PyramidalNode>(3,5);" << endl;
+  (*(p_set->HaveNet<Net>(1)))->DefineSpan<PyramidalNode>(3,5);                   if(debug_level>=1)  cout << endl << "(*(p_set->HaveNet<Net>(1)))->DefineSpan<PyramidalNode>(6,7);" << endl;
   (*(p_set->HaveNet<Net>(1)))->DefineSpan<ActorNode>(6,7);
-
-  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(1)))->HaveNode<ReceptorNode>(1);
-  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(1)))->HaveNode<ReceptorNode>(2);
-  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(2)))->HaveNode<PyramidalNode>(3);
-  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(2)))->HaveNode<PyramidalNode>(4);
-  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(2)))->HaveNode<PyramidalNode>(5);
-  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(3)))->HaveNode<ActorNode>(6);
+                                                                                 if(debug_level>=1)  cout << endl << "Adding Layer:" << endl << "(*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(1)))->HaveNode<ReceptorNode>(1);" << endl;
+  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(1)))->HaveNode<ReceptorNode>(1);  if(debug_level>=1)  cout << endl << "(*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(1)))->HaveNode<ReceptorNode>(2);" << endl;
+  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(1)))->HaveNode<ReceptorNode>(2);  if(debug_level>=1)  cout << endl << "(*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(2)))->HaveNode<ReceptorNode>(3);" << endl;
+  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(2)))->HaveNode<PyramidalNode>(3);  if(debug_level>=1)  cout << endl << "(*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(2)))->HaveNode<ReceptorNode>(4);" << endl;
+  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(2)))->HaveNode<PyramidalNode>(4);  if(debug_level>=1)  cout << endl << "(*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(2)))->HaveNode<ReceptorNode>(5);" << endl;
+  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(2)))->HaveNode<PyramidalNode>(5);  if(debug_level>=1)  cout << endl << "(*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(3)))->HaveNode<ReceptorNode>(6);" << endl;
+  (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(3)))->HaveNode<ActorNode>(6);  if(debug_level>=1)  cout << endl << "(*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(3)))->HaveNode<ReceptorNode>(7);" << endl;
   (*((*(p_set->HaveNet<Net>(1)))->HaveLayer<Layer>(3)))->HaveNode<ActorNode>(7);
 
   if(debug_level>=1)  cout << endl << "Netzstruktur aufgebaut";

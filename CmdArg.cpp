@@ -7,7 +7,7 @@
   ParseOpts(&argc,argv);
   }*/
 
-bool subopterr;
+bool subopterr=false;  // true means fatal error -> discarding operation
 
 bool SubOptRequiredArgument(const char option[], char* value)
   {
@@ -59,8 +59,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
     // additional variables for getsubopt
     char* subopts;                     
     char* value;
-    subopterr = false;  // subopterr = false;  // fatal error -> discarding operation
-    debug_level = 1;  // DEFAULT DEBUG LEVEL
+    debug_level = 9;  // DEFAULT DEBUG LEVEL  // 1
 
     opt = getopt_long (*argc, argv, "o:v::", long_options, &option_index);
 
