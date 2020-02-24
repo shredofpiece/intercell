@@ -21,7 +21,7 @@ template <typename B>  // B=Basis(klasse), D=Data, C=Count
 class ObjectCare       // ListAndIteratorObjectCare
   {
   list<B>* plp;
-  typename list<B>::iterator ilp;
+  typename list<B>::iterator ilp;  // why typename ?
  public:
   ObjectCare()
     {                                                                            if(debug_level>=5)  cout << "ObjectCare::ObjectCare()\tKonstruktor" << endl;

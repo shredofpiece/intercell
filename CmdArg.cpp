@@ -1,5 +1,9 @@
 #include "CmdArg.h"
 
+
+//char* optarg;
+//int optint, opterr=1, optopt;
+
 //opterr=1;
 
 /*int main(int argc, char * const argv[])  // alternatives: char * argv[], char **argv, char * const* argv
@@ -7,11 +11,11 @@
   ParseOpts(&argc,argv);
   }*/
 
-bool subopterr=false;  // true means fatal error -> discarding operation
+bool subopterr = false;  // true means fatal error -> discarding operation
 
 bool SubOptRequiredArgument(const char option[], char* value)
   {
-  if(value==NULL)
+  if (value == NULL)
     {
     cout << "Error: Missing value for suboption '" << option << "'." << endl << "Discarding suboption." << endl;
     subopterr = true;
@@ -23,7 +27,7 @@ bool SubOptRequiredArgument(const char option[], char* value)
 
 bool SubOptOptionalArgument(char* value)
   {
-  if(value==NULL)
+  if (value == NULL)
     {
     return false;
     }
@@ -33,7 +37,7 @@ bool SubOptOptionalArgument(char* value)
 
 void SubOptNoArgument(const char option[], char* value)
   {
-  if(value==NULL)
+  if (value == NULL)
     {
     cout << "Warning: Value '" << value << "' assigned to Non-Value-Suboption '" << option << "'." << endl << "Discarding value." << endl;
     }
@@ -41,7 +45,8 @@ void SubOptNoArgument(const char option[], char* value)
 
 bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
   {
-  while(true)
+  debug_level = 1;  // DEFAULT DEBUG LEVEL  // default: 1
+  while (true)
     {
     // variables for getopt_long
     static struct option long_options[] =  // scope is the while loop
@@ -49,8 +54,9 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
         // {"edge",    required_argument, 0, 'e'},
         // {"layer",    required_argument, 0, 'l'},
         // {"node",    required_argument, 0, 'n'},
-        {"opperation", required_argument, 0, 'o'},
-        {"verbosity",  optional_argument, 0, 'v'},
+        {"debug-level", optional_argument, 0, 'd'},
+        {"opperation",  required_argument, 0, 'o'},
+        {"verbosity",   optional_argument, 0, 'v'},
         {0, 0, 0, 0}
       };
     int opt;               // char
@@ -59,9 +65,8 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
     // additional variables for getsubopt
     char* subopts;                     
     char* value;
-    debug_level = 9;  // DEFAULT DEBUG LEVEL  // 1
 
-    opt = getopt_long (*argc, argv, "o:v::", long_options, &option_index);
+    opt = getopt_long (*argc, argv, "o:v::d::", long_options, &option_index);  // required argument: x:, optional argument: x::
 
     if (opt == -1)  // Schleifenbedingung, diese prüfen  // Detect the end of the options
       break;
@@ -72,9 +77,24 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
         if (long_options[option_index].flag != 0)  // If this option set a flag, do nothing else now
           break;
         cout << "Option " << long_options[option_index].name;
-        if (optarg>0)
+        if (optarg)
           cout << " with arg " << optarg;
         cout << endl;
+        break;
+
+      case 'd':
+        if (optarg)
+          {
+          debug_level = stoi(optarg);
+          if(debug_level>=1)
+            cout << "Option -d with arg " << optarg << endl;
+          
+          }
+        else
+          {
+          cout << "Option -d" << endl;
+          debug_level = 255;
+          }
         break;
 
       case 'v':
@@ -91,18 +111,18 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           };
         /*const char * token[] =  // char *const token[] =
           {
-          [QUIET_OPT]      = "quiet",
-          [VARIABLES_OPT]  = "variables",
-          [CREATIONS_OPT]  = "creations",
+          [QUIET_OPT]      =      "quiet",
+          [VARIABLES_OPT]  =  "variables",
+          [CREATIONS_OPT]  =  "creations",
           [STRUCTIONS_OPT] = "structions",
-          [ADRESSES_OPT]   = "adresses",
+          [ADRESSES_OPT]   =   "adresses",
           NULL
           };*/
-        char tok_quiet[] = "quiet";
-        char tok_variables[] = "variables";
-        char tok_creations[] = "creations";
+        char tok_quiet[]      =      "quiet";
+        char tok_variables[]  =  "variables";
+        char tok_creations[]  =  "creations";
         char tok_structions[] = "structions";
-        char tok_adresses[] = "adresses";
+        char tok_adresses[]   =   "adresses";
         char *const token[] =
           {
           tok_quiet,
@@ -113,7 +133,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           NULL
           };
         subopts = optarg;
-        while (*subopts != '\0')
+        while (*subopts != '\0')  // segmentation fault  // subopts != NULL is always true  // valgrind: Invalid read of size 1 at 0x10A213: ParseOpts(int*, char* const*) (CmdArg.cpp:120) by 0x10E362: main (Main.cpp:6) Address 0x0 is not stack'd, malloc'd or (recently) free'd
           {
           switch (getsubopt(&subopts, token, &value))  // const_cast<char *const *>(token)
             {
@@ -165,12 +185,12 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
           };
         const char * token[] =  // char *const token[] =
           {
-          [NET_OPT]   = "net",
-          [LAYER_OPT]   = "layer",
-          [NODE_OPT]   = "node",
-          [EDGE_OPT] = "edge",
-          [WEIGHT_OPT] = "edge",
-          [DELAY_OPT] = "edge",
+          [NET_OPT]    =   "net",
+          [LAYER_OPT]  = "layer",
+          [NODE_OPT]   =  "node",
+          [EDGE_OPT]   =  "edge",
+          [WEIGHT_OPT] =  "edge",
+          [DELAY_OPT]  =  "edge",
           NULL
           };
 

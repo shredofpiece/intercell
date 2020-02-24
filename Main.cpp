@@ -35,10 +35,19 @@ int main(int argc, char *const argv[])  // alternatives: char * argv[], char **a
 
   if(debug_level>=1)  cout << endl << "Netzstruktur aufgebaut";
 
-  // Gewünschtere Zugriffsart (like rather preferred way of access):
-  // Instance->Net(1)->Node(1)->ToNode(3)->weight += 1;  // typedef ?
-  // Instance->Net(1)->Node(4)->ToAxonBetweenNode(5,7)->weight -= 1;
-  // Instance->Net(1)->Node(5)->FromDentrideBetweenNode(2,4)->weight += 1;
+list<Node*>::iterator nodes = (*(p_set->HaveNet<Net>(1)))->HaveNode<ReceptorNode>(1);
+while(nodes!=nodes->end())
+  {
+  static cnde count = 1;
+  cout << "Node " << count << ": " << *nodes << endl;
+  ++nodes;
+  ++count;
+  }
+
+
+//cout << "Node 1: " << *((*(p_set->HaveNet<Net>(1)))->HaveNode<ReceptorNode>(1)) << endl;
+
+
 
   // Eigener Datentyp für positive, ganze Zahlen:
     //Spo s1=5, s2=10;
@@ -57,3 +66,9 @@ int main(int argc, char *const argv[])  // alternatives: char * argv[], char **a
   delete p_set;
   return 0;
   }
+
+// Gewünschtere Zugriffsart (like rather preferred way of access):
+// Instance->Net(1)->Node(1)->ToNode(3)->weight += 1;  // typedef ?
+// Instance->Net(1)->Node(4)->ToAxonBetweenNode(5,7)->weight -= 1;
+// Instance->Net(1)->Node(5)->FromDentrideBetweenNode(2,4)->weight += 1;
+
