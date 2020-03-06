@@ -37,7 +37,7 @@ bool SubOptOptionalArgument(char* value)
 
 void SubOptNoArgument(const char option[], char* value)
   {
-  if (value == NULL)
+  if (value != NULL)
     {
     cout << "Warning: Value '" << value << "' assigned to Non-Value-Suboption '" << option << "'." << endl << "Discarding value." << endl;
     }
@@ -54,9 +54,9 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
         // {"edge",    required_argument, 0, 'e'},
         // {"layer",    required_argument, 0, 'l'},
         // {"node",    required_argument, 0, 'n'},
-        {"debug-level", optional_argument, 0, 'd'},
+        {"debug-level", optional_argument, 0, 'd'},  // optional_argument
         {"opperation",  required_argument, 0, 'o'},
-        {"verbosity",   optional_argument, 0, 'v'},
+        {"verbosity",   optional_argument, 0, 'v'},  // optional argument
         {0, 0, 0, 0}
       };
     int opt;               // char
@@ -66,7 +66,7 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
     char* subopts;                     
     char* value;
 
-    opt = getopt_long (*argc, argv, "o:v::d::", long_options, &option_index);  // required argument: x:, optional argument: x::
+    opt = getopt_long (*argc, argv, "o:v:d::", long_options, &option_index);  // o:v::d::  // required argument: x:, optional argument: x::
 
     if (opt == -1)  // Schleifenbedingung, diese prüfen  // Detect the end of the options
       break;
@@ -100,6 +100,12 @@ bool ParseOpts(int* argc, char *const argv[])  // constant pointer to char array
       case 'v':
         {
         cout << "Option -v" << endl;
+        cout << "Optarg: " << optarg << endl;
+        if (*subopts == '\0')  // *subopts == '\0'  // optarg == NULL
+          {
+          debug_level = 255;
+          break;
+          }
         // variables for getsubopt
         enum
           {
